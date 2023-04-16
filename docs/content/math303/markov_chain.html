@@ -209,8 +209,13 @@ with <span class="math inline">\(j\)</span> (<span
 class="math inline">\(i\leftrightarrow j\)</span>) if we additionally
 have <span class="math inline">\(j\to i\)</span>.</p>
 <p>Communication between states is an equivalence relation and these
-equivalence classes are called <strong>communication
-classes</strong>.</p>
+equivalence classes are called <strong>communication classes</strong>. A
+communication class <span class="math inline">\(C\)</span> is called
+<strong>closed</strong> if every state not in <span
+class="math inline">\(C\)</span> is not accessible from any state in
+<span class="math inline">\(C\)</span>. That is, <span
+class="math inline">\(i\not\to j\)</span> for any <span
+class="math inline">\(i\in{C}, j\not\in{C}\)</span>.</p>
 <p>If a Markov chain has exactly 1 communication class, it is called
 <strong>irreducible</strong>.</p>
 <h2 id="period">Period</h2>
@@ -224,5 +229,18 @@ class="math inline">\(i\)</span> is aperiodic. If <span
 class="math inline">\(C\)</span> is the communication class of <span
 class="math inline">\(i\)</span>, we may also say <span
 class="math inline">\(C\)</span> is aperiodic.</p>
+<h2 id="stationary-distribution">Stationary Distribution</h2>
+<p>An initial distribution <span class="math inline">\(\alpha\)</span>
+for a Markov chain is a list of probabilities <span
+class="math inline">\(P(X_0 = i) = \alpha_i\)</span>, such that <span
+class="math inline">\(\sum_{i} \alpha_i = 1\)</span>. Then, <span
+class="math inline">\(P(X_{n} = i) = (\alpha P^{n})_{i}\)</span>.</p>
+<p>We say a distribution <span class="math inline">\(\pi\)</span> is
+<strong>stationary</strong> if <span class="math inline">\(\pi P =
+\pi\)</span>.</p>
+<h2 id="more-notes">More Notes</h2>
+<ul>
+<li><a href="/content/math303/big_theorem.html">Big theorem</a></li>
+</ul>
 </body>
 </html>

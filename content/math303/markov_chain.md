@@ -31,6 +31,9 @@ We say $i$ **communicates** with $j$ ($i\leftrightarrow j$) if we additionally h
 
 Communication between states is an equivalence relation
 and these equivalence classes are called **communication classes**.
+A communication class $C$ is called **closed**
+if every state not in $C$ is not accessible from any state in $C$.
+That is, $i\not\to j$ for any $i\in{C}, j\not\in{C}$.
 
 If a Markov chain has exactly 1 communication class,
 it is called **irreducible**.
@@ -45,3 +48,16 @@ the same communication class has the same period.
 If $d(i) = 1$, we say $i$ is aperiodic.
 If $C$ is the communication class of $i$,
 we may also say $C$ is aperiodic.
+
+## Stationary Distribution
+
+An initial distribution $\alpha$ for a Markov chain
+is a list of probabilities $P(X_0 = i) = \alpha_i$,
+such that $\sum_{i} \alpha_i = 1$.
+Then, $P(X_{n} = i) = (\alpha P^{n})_{i}$.
+
+We say a distribution $\pi$ is **stationary** if $\pi P = \pi$.
+
+## More Notes
+
+- [Big theorem](/content/math303/big_theorem.html)

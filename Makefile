@@ -8,5 +8,12 @@ docs/%.html: %.md
 	@mkdir -p $$(dirname $@)
 	pandoc -s --mathjax -o $@ $<
 
+new:
+	$(if $(path),\
+		@mkdir -p content/$$(dirname $(path));\
+		cp -i templates/basic.md content/$(path),\
+		$(error syntax: make new path=<content-path>)\
+	)
+
 clean:
 	-rm -rf docs/content
