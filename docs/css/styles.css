@@ -11,8 +11,12 @@ body {
     font-kerning: normal;
 }
 
-.title {
+.title-card {
     display: flex;
+}
+
+.title {
+    margin-bottom: 0;
 }
 
 .logo-img {
