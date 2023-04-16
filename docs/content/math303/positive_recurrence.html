@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Template</title>
+  <title>Positive Recurrence</title>
   <style>
     html {
       color: #1a1a1a;
@@ -159,15 +159,30 @@
       vertical-align: middle;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Template</h1>
+<h1 class="title">Positive Recurrence</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-
+<p>In an infinite state space, a communication class <span
+class="math inline">\(C\)</span> is recurrent if the expected time of
+return for any <span class="math inline">\(i\in{C}\)</span> is finite.
+In other words,</p>
+<p><span class="math display">\[
+\mathbb{E}[X_{n} = i \text{ for some } n\mid X_{0} = i] =
+\sum_{n\in\mathbb{N}} p_{ii}^{(n)} &lt; \infty.
+\]</span></p>
+<p>Otherwise, we say <span class="math inline">\(C\)</span> is
+transient.</p>
+<p>In the case of a finite state space, positive recurrence holds when
+the chain is closed.</p>
 </body>
 </html>

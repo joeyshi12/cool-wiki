@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Template</title>
+  <title>Poisson Process</title>
   <style>
     html {
       color: #1a1a1a;
@@ -159,15 +159,63 @@
       vertical-align: middle;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Template</h1>
+<h1 class="title">Poisson Process</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-
+<p>A Poisson random variable <span class="math inline">\(X\sim
+Poisson(\lambda)\)</span>, <span class="math inline">\(\lambda &gt;
+0\)</span> has p.d.f. <span class="math inline">\(P(X = k) =
+\frac{\lambda^ke^{-\lambda}}{k!}\)</span> and expectation <span
+class="math inline">\(E[X] = \lambda\)</span>.</p>
+<p><strong>Definition 2</strong>. A counting process <span
+class="math inline">\(\{N(t)\}_{t\geq 0}\)</span> is a rate-<span
+class="math inline">\(\lambda\)</span> Poisson process if</p>
+<ol type="1">
+<li>Increments <span class="math inline">\(N(t) - N(s)\)</span> and
+<span class="math inline">\(N(v) - N(u)\)</span> are independent</li>
+<li><span class="math inline">\(P(N(t+h) - N(t) = 1) = \lambda h +
+o(h)\)</span></li>
+<li><span class="math inline">\(P(N(t+h) - N(t)\geq 2) =
+o(h)\)</span></li>
+</ol>
+<h2 id="poisson-thinning">Poisson thinning</h2>
+<p>Suppose <span class="math inline">\(N(t)\)</span> is a Poisson
+process with independent events of</p>
+<p><span class="math display">\[
+\begin{cases}
+\mbox{Type 1} &amp;\text{w.p.}\quad p \\
+\mbox{Type 2} &amp;\text{w.p.}\quad 1-p
+\end{cases}
+\]</span></p>
+<p>Then, the number of type 1 events by time <span
+class="math inline">\(t\)</span> (<span
+class="math inline">\(N_1(t)\)</span>) and the number of type 2 events
+by time <span class="math inline">\(t\)</span> (<span
+class="math inline">\(N_2(t)\)</span>) are also Poisson processes of
+rates <span class="math inline">\(p\lambda\)</span> and <span
+class="math inline">\((1-p)\lambda\)</span> respectively.</p>
+<p>Now suppose there are <span class="math inline">\(k\)</span> types
+and the probability of an event being type <span
+class="math inline">\(i\)</span> by time <span
+class="math inline">\(t\)</span> is <span
+class="math inline">\(p_i(t)\)</span>.</p>
+<p><strong>Proposition</strong>. <span
+class="math inline">\(\displaystyle N_i(t) \sim
+Poisson\left(\int_{0}^{t} p_i(s) ds\right)\)</span></p>
+<h2 id="conditioning-on-total-events">Conditioning on total events</h2>
+<p>Conditioned on <span class="math inline">\(N(t) = n\)</span> events
+<span class="math inline">\(S_1,\dots S_n\)</span>, each arrival time
+will have a uniform distribution <span class="math inline">\(S_i\sim
+Unif[0, t]\)</span>.</p>
 </body>
 </html>

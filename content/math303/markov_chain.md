@@ -60,5 +60,5 @@ We say a distribution $\pi$ is **stationary** if $\pi P = \pi$.
 
 ## More Notes
 
-- [Positive recurrence](/content/math303/positive_recurrence.md)
+- [Positive recurrence](/content/math303/positive_recurrence.html)
 - [Big theorem](/content/math303/big_theorem.html)
