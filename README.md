@@ -2,7 +2,7 @@
 
 Notes for some classes I am taking in university.
 
-## Contributing
+## How to contribute
 
 - Fork the repository
 - Create a new note with `make new path=<subject>/<note>.md` or update an existing one
