@@ -175,7 +175,7 @@
 <p>Let <span class="math inline">\(\{X_{n}\}\)</span> be a sequence of
 i.i.d. random variables. <span class="math inline">\(\{X_n\}\)</span> is
 a Markov Chain if <span class="math inline">\(P(X_{n+1} = j \mid X_{n} =
-i) = X_{1} = j \mid X_{0} = i)\)</span>. <span
+i) = X_{1} = j \mid X_{0} = i)\)</span> (Markov property). <span
 class="math inline">\(\{X_{n}\}\)</span> is a homogeneous Markov chain
 if it has the following additional property:</p>
 <p><span class="math display">\[P(X_{n+1} = i_{n+1} \mid X_{0} =
@@ -225,9 +225,9 @@ closed walks in the Markov chain starting from <span
 class="math inline">\(i\)</span>. The period is a class property, so all
 states in the same communication class has the same period.</p>
 <p>If <span class="math inline">\(d(i) = 1\)</span>, we say <span
-class="math inline">\(i\)</span> is aperiodic. If <span
+class="math inline">\(i\)</span> is <strong>aperiodic</strong>. If <span
 class="math inline">\(C\)</span> is the communication class of <span
-class="math inline">\(i\)</span>, we may also say <span
+class="math inline">\(i\)</span>, so we may also say <span
 class="math inline">\(C\)</span> is aperiodic.</p>
 <h2 id="stationary-distribution">Stationary Distribution</h2>
 <p>An initial distribution <span class="math inline">\(\alpha\)</span>
@@ -240,9 +240,11 @@ class="math inline">\(P(X_{n} = i) = (\alpha P^{n})_{i}\)</span>.</p>
 \pi\)</span>.</p>
 <h2 id="more-notes">More Notes</h2>
 <ul>
+<li>Chapman-Kologorov Equations: <span
+class="math inline">\(p_{ij}^{(m+n)} = \sum_{k}
+p_{ik}^{(m)}p_{kj}^{(n)}\)</span></li>
 <li><a href="/content/math303/positive_recurrence.html">Positive
 recurrence</a></li>
-<li><a href="/content/math303/big_theorem.html">Big theorem</a></li>
 </ul>
 </body>
 </html>

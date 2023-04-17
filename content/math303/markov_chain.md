@@ -4,7 +4,7 @@ subtitle: "[Return home](/)"
 ---
 
 Let $\{X_{n}\}$ be a sequence of i.i.d. random variables.
-$\{X_n\}$ is a Markov Chain if $P(X_{n+1} = j \mid X_{n} = i) = X_{1} = j \mid X_{0} = i)$.
+$\{X_n\}$ is a Markov Chain if $P(X_{n+1} = j \mid X_{n} = i) = X_{1} = j \mid X_{0} = i)$ (Markov property).
 $\{X_{n}\}$ is a homogeneous Markov chain if it has the following additional property:
 
 $$P(X_{n+1} = i_{n+1} \mid X_{0} = i_{0},\ldots X_{n} = i_{n})
@@ -45,9 +45,9 @@ of all closed walks in the Markov chain starting from $i$.
 The period is a class property, so all states in
 the same communication class has the same period.
 
-If $d(i) = 1$, we say $i$ is aperiodic.
+If $d(i) = 1$, we say $i$ is **aperiodic**.
 If $C$ is the communication class of $i$,
-we may also say $C$ is aperiodic.
+so we may also say $C$ is aperiodic.
 
 ## Stationary Distribution
 
@@ -60,5 +60,5 @@ We say a distribution $\pi$ is **stationary** if $\pi P = \pi$.
 
 ## More Notes
 
+- Chapman-Kologorov Equations: $p_{ij}^{(m+n)} = \sum_{k} p_{ik}^{(m)}p_{kj}^{(n)}$
 - [Positive recurrence](/content/math303/positive_recurrence.html)
-- [Big theorem](/content/math303/big_theorem.html)
