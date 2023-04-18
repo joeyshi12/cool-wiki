@@ -1,4 +1,4 @@
 ---
-title: "Template"
+title: "Duality"
 subtitle: "[Return home](/)"
 ---
