@@ -159,6 +159,10 @@
       vertical-align: middle;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -168,6 +172,33 @@
 <h1 class="title">Simplex Method</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-
+<p><strong>problem</strong>. Let <span
+class="math inline">\(A\in\mathbb{R}^{m\times n}\)</span> have full row
+rank. Consider the LP in standard form:</p>
+<p><span class="math display">\[\begin{cases}
+\min_{x\in\mathbb{R}^n} c^T x \\
+\text{subj. to}\quad Ax = b, x\geq 0
+\end{cases}\]</span></p>
+<h2 id="simplex-algorithm">Simplex Algorithm</h2>
+<p>Start with a basic variables <span class="math inline">\(\mathcal{B}
+= \{\beta_1,\ldots, \beta_m\}\)</span> and nonbasic variables <span
+class="math inline">\(\mathcal{N} = \{\eta_1,\ldots,
+\eta_{n-m}\}\)</span>.</p>
+<p>For each iteration:</p>
+<ol type="1">
+<li>Solve <span class="math inline">\(Bx_B = b\)</span> for <span
+class="math inline">\(x_B\)</span></li>
+<li>Solve <span class="math inline">\(B^T y = c_B\)</span> for <span
+class="math inline">\(y\)</span></li>
+<li>Find all reduced costs <span class="math inline">\(z_N = c_N - N^T
+y\)</span> and choose <span class="math inline">\(\eta_k\)</span>
+corresponding to the variable of lowest cost</li>
+<li>Solve <span class="math inline">\(Bd_B = -a_{\eta_k}\)</span> for
+the search direction <span class="math inline">\(d_{B}\)</span></li>
+<li>Kick the basic variable with index <span
+class="math inline">\(\displaystyle q = \underset{q\in\{1,\dots, m\}\mid
+d_{\beta_q} &lt; 0}{\mbox{argmin}}
+-\frac{x_{\beta_q}}{d_{\beta_q}}\)</span></li>
+</ol>
 </body>
 </html>

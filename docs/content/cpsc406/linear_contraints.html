@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Convexity</title>
+  <title>Linear Constraints</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,66 +169,64 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Convexity</h1>
+<h1 class="title">Linear Constraints</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<h2 id="convex-sets">Convex Sets</h2>
-<p><strong>definition</strong>. <span class="math inline">\(C\)</span>
-is <strong>convex</strong> if <span class="math inline">\(\lambda x + (1
-- \lambda) y\in{C}\)</span> for any <span class="math inline">\(x,
-y\in{C}\)</span>.</p>
-<p><strong>proposition</strong>. Let <span
-class="math inline">\(C_1,\ldots, C_n\)</span> be convex, <span
-class="math inline">\(\mu_1,\ldots, \mu_n\in\mathbb{R}\)</span>, and
-<span class="math inline">\(A\in\mathbb{R}^{m\times n}\)</span>. Then,
-the following are also convex:</p>
+<p><strong>Problem</strong>. Let <span
+class="math inline">\(A\in\mathbb{R}^{m\times n}\)</span> be
+underdetermined (<span class="math inline">\(m\ll n\)</span>) and <span
+class="math inline">\(A\)</span> is full rank (<span
+class="math inline">\(\mbox{rank}(A) = m\)</span>).</p>
+<p><span class="math display">\[\begin{cases}
+\displaystyle \min_{x\in\mathbb{R}^n} f(x) \\
+\text{subj. to}\quad Ax = b
+\end{cases}\]</span></p>
+<p>The feasible set can be written as <span class="math inline">\(F =
+\{x \mid Ax = b\} = \{\overline{x} + z\mid
+z\in\mbox{null}(A)\}\)</span>, where <span
+class="math inline">\(\overline{x}\)</span> is a particular solution to
+<span class="math inline">\(Ax = b\)</span>.</p>
+<p>Let <span class="math inline">\(Z\)</span> be the basis for <span
+class="math inline">\(\mbox{null}(A)\)</span>. Since <span
+class="math inline">\(A\)</span> is full rank, we know <span
+class="math inline">\(Z\)</span> is <span class="math inline">\(n\times
+(n-m)\)</span>. Thus, the problem above can be written as</p>
+<p><span class="math display">\[\min_{p\in\mathbb{R}^{n-m}}
+f(\overline{x} + Zp).\]</span></p>
+<p>We proceed to characterize the stationary points w.r.t. <span
+class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+&amp;\nabla_{p} f(\overline{x} + Zp) = Z^T\nabla f(\overline{x} + Zp) =
+0 \\
+\Leftrightarrow &amp;\nabla f(\overline{x} + Zp)\in\mbox{null}(Z^T) \\
+\Leftrightarrow &amp;\nabla f(\overline{x} + Zp)\in\mbox{range}(A^T).
+\end{align}\]</span></p>
+<p>Thus, if <span class="math inline">\(x^*\)</span> is a solution to
+the linearly constrained problem, then</p>
+<p><span class="math display">\[\begin{cases}
+\nabla f(x^*) = A^Ty\quad \text{for some } y\in\mathbb{R}^{m} \\
+Ax^* = b
+\end{cases}\]</span></p>
+<p><span class="math inline">\(y\)</span> is often called the
+<strong>Lagrange Multiplier</strong>.</p>
+<h2 id="second-order-necessary-conditions">Second-order Necessary
+Conditions</h2>
+<p><span class="math inline">\(p^*\)</span> is a local minimizer of
+<span class="math inline">\(f_Z(p) := f(\overline{x} = Zp)\)</span>
+if</p>
+<p><span class="math display">\[\nabla^2 f_z(p^*) = Z^T\nabla^2
+f(\overline{x} + Zp^*)Z\succeq 0.\]</span></p>
+<h2 id="reduced-gradient-method-wip">Reduced Gradient Method (WIP)</h2>
+<p>The problem reduces down to something analogous to the scaled descent
+algorithm with <span class="math inline">\(Z\)</span> as the ‘scaling’
+matrix (although <span class="math inline">\(Z\)</span> is not a scaling
+matrix since <span class="math inline">\(Z\)</span> is not necessarily
+positive definite).</p>
 <ol type="1">
-<li><span class="math inline">\(\displaystyle \bigcap_{i=1}^{n}
-C_i\)</span></li>
-<li><span class="math inline">\(\displaystyle \mu_1C_1 + \cdots +
-\mu_nC_n = \left\{\sum_{i=1}^{n} \mu_i x_i \mid
-x_i\in{C_i}\right\}\)</span></li>
-<li><span class="math inline">\(A(C) = \{Ax \mid x\in{C}\}\)</span></li>
+<li>Start with a feasible <span class="math inline">\(x_0\)</span>.</li>
+<li>The descent directions at each iteration is the solution to <span
+class="math inline">\(Z^T\nabla^2 f(x_k) Z p_k = -Z^T \nabla
+f(x_k)\)</span>.</li>
 </ol>
-<h2 id="examples-of-convex-sets">Examples of Convex Sets</h2>
-<ul>
-<li><span class="math inline">\(B = \{x\in\mathbb{R}^{n} \mid \|x -
-c\|\leq r\}\)</span> (Norm ball)</li>
-<li><span class="math inline">\(\Delta_n = \{x\in\mathbb{R}^n \mid \sum
-x_i \leq 1, x_i\geq 0\}\)</span> (Simplex)</li>
-<li><span class="math inline">\(\overline{\Delta}_n =
-\{x\in\mathbb{R}^{n} \mid \sum x_i = 1, x_i\geq 0\}\)</span>
-(Probability simplex)</li>
-<li><span class="math inline">\(H_{a, \beta}^{-} = \{x\in\mathbb{R}^n
-\mid a^T x\leq \beta\}\)</span> (Half-space)</li>
-<li><span class="math inline">\(H_{a, \beta} = \{x\in\mathbb{R}^n \mid
-a^T x = \beta\}\)</span> (Hyper-plane)</li>
-</ul>
-<figure>
-<img src="/assets/convex_sets.svg" alt="Convex Sets" />
-<figcaption aria-hidden="true">Convex Sets</figcaption>
-</figure>
-<h2 id="convex-functions">Convex Functions</h2>
-<p><strong>definition.</strong> <span class="math inline">\(f\)</span>
-is <strong>convex</strong> over a convex set <span
-class="math inline">\(C\)</span> if <span
-class="math inline">\(f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) +
-(1 - \lambda) f(y)\)</span> for any <span class="math inline">\(x,
-y\in{C}\)</span>. <span class="math inline">\(f\)</span> is
-<strong>strictly convex</strong> if strict inequality holds.</p>
-<p><strong>proposition</strong>. Let <span class="math inline">\(f,
-g\)</span> be convex, <span class="math inline">\(\alpha\geq 0\)</span>,
-<span class="math inline">\(A\in\mathbb{R}^{m\times n}\)</span> and
-<span class="math inline">\(b\in\mathbb{R}^n\)</span>. Then, the
-following are also convex:</p>
-<ol type="1">
-<li><span class="math inline">\(\alpha f\)</span></li>
-<li><span class="math inline">\(f + g\)</span></li>
-<li><span class="math inline">\(f(Ax + b)\)</span></li>
-</ol>
-<p><strong>theorem</strong>. Local minimizers of a convex function <span
-class="math inline">\(f\)</span> are global minimizers. Moreover, if
-<span class="math inline">\(f\)</span> is strictly convex, the global
-minimizer is unique.</p>
 </body>
 </html>
