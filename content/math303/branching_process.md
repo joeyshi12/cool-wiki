@@ -11,7 +11,7 @@ $$Z_n = \sum_{i=1}^{Z_{n-1}} X_{i},$$
 where each $X_i$ are independent with same distribution as $X$
 and $Z_{0} = 1$.
 
-**proposition**. Denote $\mu = EX$, $\sigma^2 = Var(X)$, and
+**proposition**. Denote $\mu = EX$, $\sigma^2 = \mbox{Var}(X)$, and
 $\eta = P(\text{eventual extinction})$. Then,
 
 1. $\eta$ is the smallest non-negative root of $G(s) = s$
@@ -26,6 +26,25 @@ is $k$, then the probability of extinction is $\eta^{k}$
 as each individual can be thought as independent branching processes,
 so the probability of extinction is the probability that
 each process is eventually goes extinct.
+
+## Mean and Variance of the Branching Process
+
+Let $Z_{n}$ be a branching process with reproduction law $X$ and
+let $\mu = EX$, $\sigma^2 = \mbox{Var}(X)$. The expectation of $Z_{n}$ is
+
+$$E[Z_{n}] = E[E[Z_{n} \mid Z_{n-1}]] = E[Z_{n-1}\mu] = \mu E[Z_{n-1}] = \cdots = \mu^{n} E[Z_{0}] = \mu^{n}.$$
+
+The variance of $Z_{n}$ is
+
+$$\mbox{Var}(Z_{n}) = \begin{cases}
+\sigma^2 \mu^{n-1}\left(\frac{1 - \mu^n}{1 - \mu}\right), &\text{if } \mu\neq 1 \\
+n\sigma^2, &\text{if } \mu = 1
+\end{cases}$$
+
+**Remark**: the proof for this is more cumbersome, but can be done
+with conditional variance (see textbook).
+
+$$\mbox{Var}(Z_n) = E[\mbox{Var}(Z_n\mid Z_{n-1})] + \mbox{Var}(E[Z_{n}\mid Z_{n-1}])$$
 
 ## Generating Function
 
