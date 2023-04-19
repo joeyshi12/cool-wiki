@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Poisson Process</title>
+  <title>Distribution Properties</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,48 +169,63 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Poisson Process</h1>
+<h1 class="title">Distribution Properties</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<p><strong>Definition 2</strong>. A counting process <span
-class="math inline">\(\{N(t)\}_{t\geq 0}\)</span> is a rate-<span
-class="math inline">\(\lambda\)</span> Poisson process if</p>
-<ol type="1">
-<li>Increments <span class="math inline">\(N(t) - N(s)\)</span> and
-<span class="math inline">\(N(v) - N(u)\)</span> are independent</li>
-<li><span class="math inline">\(P(N(t+h) - N(t) = 1) = \lambda h +
-o(h)\)</span></li>
-<li><span class="math inline">\(P(N(t+h) - N(t)\geq 2) =
-o(h)\)</span></li>
-</ol>
-<h2 id="poisson-thinning">Poisson thinning</h2>
-<p>Suppose <span class="math inline">\(N(t)\)</span> is a Poisson
-process with independent events of</p>
-<p><span class="math display">\[
-\begin{cases}
-\mbox{Type 1} &amp;\text{w.p.}\quad p \\
-\mbox{Type 2} &amp;\text{w.p.}\quad 1-p
-\end{cases}
-\]</span></p>
-<p>Then, the number of type 1 events by time <span
-class="math inline">\(t\)</span> (<span
-class="math inline">\(N_1(t)\)</span>) and the number of type 2 events
-by time <span class="math inline">\(t\)</span> (<span
-class="math inline">\(N_2(t)\)</span>) are also Poisson processes of
-rates <span class="math inline">\(p\lambda\)</span> and <span
-class="math inline">\((1-p)\lambda\)</span> respectively.</p>
-<p>Now suppose there are <span class="math inline">\(k\)</span> types
-and the probability of an event being type <span
-class="math inline">\(i\)</span> by time <span
-class="math inline">\(t\)</span> is <span
-class="math inline">\(p_i(t)\)</span>.</p>
-<p><strong>Proposition</strong>. <span
-class="math inline">\(\displaystyle N_i(t) \sim
-Poisson\left(\int_{0}^{t} p_i(s) ds\right)\)</span></p>
-<h2 id="conditioning-on-total-events">Conditioning on total events</h2>
-<p>Conditioned on <span class="math inline">\(N(t) = n\)</span> events
-<span class="math inline">\(S_1,\dots S_n\)</span>, each arrival time
-will have a uniform distribution <span class="math inline">\(S_i\sim
-Unif[0, t]\)</span>.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 37%" />
+<col style="width: 20%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Distribution</th>
+<th>PMF<span class="math inline">\((k)\)</span>/PDF<span
+class="math inline">\((x)\)</span></th>
+<th>Mean</th>
+<th>Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Geom(p)\)</span></td>
+<td><span class="math inline">\((1-p)^{k-1}p\)</span></td>
+<td><span class="math inline">\(\frac{1}{p}\)</span></td>
+<td><span class="math inline">\(\frac{1-p}{p^2}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Bin(n, p)\)</span></td>
+<td><span
+class="math inline">\(\binom{n}{k}p^{k}(1-p)^{n-k}\)</span></td>
+<td><span class="math inline">\(np\)</span></td>
+<td><span class="math inline">\(np(1-p)\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Exp(\lambda)\)</span></td>
+<td><span class="math inline">\(\lambda e^{-\lambda x}\)</span></td>
+<td><span class="math inline">\(\frac{1}{\lambda}\)</span></td>
+<td><span class="math inline">\(\frac{1}{\lambda^2}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Poisson(\lambda)\)</span></td>
+<td><span
+class="math inline">\(\frac{\lambda^{k}e^{-\lambda}}{k!}\)</span></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exponential-distribution">Exponential Distribution</h2>
+<p>The exponential random variable <span class="math inline">\(X\sim
+Exp(\lambda)\)</span>, <span class="math inline">\(\lambda &gt;
+0\)</span> has the following properties:</p>
+<ul>
+<li><span class="math inline">\(P(X &gt; t + s \mid X &gt; s) = P(X &gt;
+t)\)</span> (Memoryless)</li>
+<li><span class="math inline">\(\min\{Exp(\lambda_1), Exp(\lambda_2)\}
+\sim Exp(\lambda_1 + \lambda_2)\)</span></li>
+</ul>
 </body>
 </html>

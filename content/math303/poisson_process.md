@@ -3,9 +3,6 @@ title: "Poisson Process"
 subtitle: "[Return home](/)"
 ---
 
-A Poisson random variable $X\sim Poisson(\lambda)$, $\lambda > 0$
-has p.d.f. $P(X = k) = \frac{\lambda^ke^{-\lambda}}{k!}$ and expectation $E[X] = \lambda$.
-
 **Definition 2**. A counting process $\{N(t)\}_{t\geq 0}$ is a rate-$\lambda$ Poisson process if
 
 1. Increments $N(t) - N(s)$ and $N(v) - N(u)$ are independent
