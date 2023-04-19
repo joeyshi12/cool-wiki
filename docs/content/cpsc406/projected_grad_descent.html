@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Duality</title>
+  <title>Projected Gradient Descent</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,33 +169,33 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Duality</h1>
+<h1 class="title">Projected Gradient Descent</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<p><strong>primal problem</strong>. <span
-class="math inline">\(\displaystyle \min_{x} c^T x\)</span> subject to
-<span class="math inline">\(Ax = b\)</span>, <span
-class="math inline">\(x\geq 0\)</span></p>
-<p><strong>relaxed problem</strong>. <span
-class="math inline">\(\displaystyle \min_{x} c^T x + y^T(b -
-Ax)\)</span> subject to <span class="math inline">\(x\geq 0\)</span></p>
-<p><strong>dual problem</strong>. <span
-class="math inline">\(\displaystyle \max_{y} \left(\min_{x} c^T x +
-y^T(b - Ax)\right)\)</span> subject to <span class="math inline">\(x\geq
-0\)</span></p>
-<p>The dual problem can be reformulated as <span
-class="math inline">\(\displaystyle \max_{y, z} b^T y\)</span> subject
-to <span class="math inline">\(A^T y + z = c\)</span>, <span
-class="math inline">\(z\geq 0\)</span>.</p>
-<p><strong>Weak-duality theorem</strong>. If <span
-class="math inline">\(x\)</span> is primal feasible and <span
-class="math inline">\((y, z)\)</span> is dual feasible, then <span
-class="math inline">\(c^Tx \geq b^T y\)</span></p>
-<p><strong>proof</strong>. <span class="math inline">\(c^Tx = (A^Ty +
-z)^T x = y^TAx + z^T x = y^Tb + z^T x \geq y^T b\)</span> since <span
-class="math inline">\(x, z\geq 0\)</span>. Note that equality holds when
-<span class="math inline">\(z^T x = 0\)</span>.</p>
-<p><strong>Strong-duality theorem</strong>. If an LP has an optimal
-solution, so does its dual and the optimal values are equal.</p>
+<p><strong>problem</strong>. <span class="math inline">\(\displaystyle
+\min_{x\in{C}} f(x)\)</span>, where <span
+class="math inline">\(f\)</span> is continuously differentiable and
+<span class="math inline">\(C\)</span> is convex.</p>
+<p><strong>definition</strong>. <span
+class="math inline">\(\mbox{proj}_{C}(x) =
+\underset{z\in{C}}{\mbox{argmin}} \frac{1}{2}\|z - x\|^2\)</span></p>
+<ul>
+<li><span class="math inline">\(\mbox{proj}_{C}(x) = x\)</span> if <span
+class="math inline">\(x\in{C}\)</span></li>
+<li><span class="math inline">\(\mbox{proj}(z)\)</span> is unique since
+the objective is strictly convex</li>
+<li><span class="math inline">\((x - z)\in N_{C}(x)\)</span></li>
+</ul>
+<p><strong>proof for (3)</strong>. for the third property, let <span
+class="math inline">\(f(z) = \frac{1}{2}\|z - x\|^2\)</span>. If <span
+class="math inline">\(z^* = \mbox{proj}_{C}(x)\)</span>,</p>
+<p><span class="math display">\[f&#39;(z^*; y - z^*) = \nabla f(z^*)^T(y
+- z^*) = (z^* - x)^T(y - z^*) \geq 0\]</span></p>
+<p>for any feasible <span class="math inline">\(y\)</span> as <span
+class="math inline">\(z^*\)</span> is the global minimizer of <span
+class="math inline">\(f\)</span>. Then, <span class="math inline">\((x -
+z^*)^T(y - z^*)\leq 0\)</span> for any <span
+class="math inline">\(y\in{C}\)</span>, so <span
+class="math inline">\((x - z^*)\in N_{C}(x)\)</span> by definition.</p>
 </body>
 </html>

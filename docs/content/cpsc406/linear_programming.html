@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Duality</title>
+  <title>Linear Programming</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,33 +169,67 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Duality</h1>
+<h1 class="title">Linear Programming</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<p><strong>primal problem</strong>. <span
-class="math inline">\(\displaystyle \min_{x} c^T x\)</span> subject to
-<span class="math inline">\(Ax = b\)</span>, <span
-class="math inline">\(x\geq 0\)</span></p>
-<p><strong>relaxed problem</strong>. <span
-class="math inline">\(\displaystyle \min_{x} c^T x + y^T(b -
-Ax)\)</span> subject to <span class="math inline">\(x\geq 0\)</span></p>
-<p><strong>dual problem</strong>. <span
-class="math inline">\(\displaystyle \max_{y} \left(\min_{x} c^T x +
-y^T(b - Ax)\right)\)</span> subject to <span class="math inline">\(x\geq
-0\)</span></p>
-<p>The dual problem can be reformulated as <span
-class="math inline">\(\displaystyle \max_{y, z} b^T y\)</span> subject
-to <span class="math inline">\(A^T y + z = c\)</span>, <span
-class="math inline">\(z\geq 0\)</span>.</p>
-<p><strong>Weak-duality theorem</strong>. If <span
-class="math inline">\(x\)</span> is primal feasible and <span
-class="math inline">\((y, z)\)</span> is dual feasible, then <span
-class="math inline">\(c^Tx \geq b^T y\)</span></p>
-<p><strong>proof</strong>. <span class="math inline">\(c^Tx = (A^Ty +
-z)^T x = y^TAx + z^T x = y^Tb + z^T x \geq y^T b\)</span> since <span
-class="math inline">\(x, z\geq 0\)</span>. Note that equality holds when
-<span class="math inline">\(z^T x = 0\)</span>.</p>
-<p><strong>Strong-duality theorem</strong>. If an LP has an optimal
-solution, so does its dual and the optimal values are equal.</p>
+<p><strong>problem</strong>. <span class="math inline">\(\displaystyle
+\min_{x} c^T x\)</span> subject to <span class="math inline">\(Ax =
+b\)</span>, <span class="math inline">\(x\geq 0\)</span></p>
+<h2 id="lp-geometry">LP Geometry</h2>
+<p><strong>definition</strong>. Let <span
+class="math inline">\(\mathcal{P} = \{x \mid Ax \leq b\}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(x\)</span> is an <strong>extreme
+point</strong> of <span class="math inline">\(\mathcal{P}\)</span> if it
+is not a convex combination of other points in <span
+class="math inline">\(\mathcal{P}\)</span>.</li>
+<li><span class="math inline">\(x\)</span> is a <strong>vertex</strong>
+if there exists <span class="math inline">\(c\neq 0\)</span>, such that
+<span class="math inline">\(c^T x &lt; c^T y\)</span> for all <span
+class="math inline">\(y\in\mathcal{P}\)</span>.</li>
+<li><span class="math inline">\(x\)</span> is a <strong>basic
+solution</strong> if there exists a submatrix <span
+class="math inline">\(\overline{A}\)</span> of <span
+class="math inline">\(A\)</span> containing only active constraints
+w.r.t. <span class="math inline">\(x\)</span>, such that one of the
+following equivalent conditions hold:
+<ul>
+<li><span class="math inline">\(\overline{A}\)</span> is linearly
+indepedent</li>
+<li><span class="math inline">\(\overline{A}x =
+\overline{b}\)</span></li>
+<li><span class="math inline">\(\mbox{rank}(\overline{A}) =
+n\)</span></li>
+</ul></li>
+</ul>
+<p><strong>theorem</strong>. The following are equivalent
+statements:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> is an extreme point</li>
+<li><span class="math inline">\(x\)</span> is a vertex</li>
+<li><span class="math inline">\(x\)</span> is a basic feasible
+solution</li>
+</ul>
+<h2 id="simplex-algorithm">Simplex Algorithm</h2>
+<p>Start with a basic variables <span class="math inline">\(\mathcal{B}
+= \{\beta_1,\ldots, \beta_m\}\)</span> and nonbasic variables <span
+class="math inline">\(\mathcal{N} = \{\eta_1,\ldots,
+\eta_{n-m}\}\)</span>.</p>
+<p>For each iteration:</p>
+<ol type="1">
+<li>Solve <span class="math inline">\(Bx_B = b\)</span> for <span
+class="math inline">\(x_B\)</span></li>
+<li>Solve <span class="math inline">\(B^T y = c_B\)</span> for <span
+class="math inline">\(y\)</span></li>
+<li>Find all reduced costs <span class="math inline">\(z_N = c_N - N^T
+y\)</span> and choose <span class="math inline">\(\eta_k\)</span>
+corresponding to the variable of lowest cost</li>
+<li>Solve <span class="math inline">\(Bd_B = -a_{\eta_k}\)</span> for
+the search direction <span class="math inline">\(d_{B}\)</span></li>
+<li>Kick the basic variable with index <span
+class="math inline">\(\displaystyle q = \underset{q\in\{1,\dots, m\}\mid
+d_{\beta_q} &lt; 0}{\mbox{argmin}}
+-\frac{x_{\beta_q}}{d_{\beta_q}}\)</span></li>
+</ol>
 </body>
 </html>
