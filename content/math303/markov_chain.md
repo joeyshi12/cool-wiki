@@ -4,7 +4,10 @@ subtitle: "[Return home](/)"
 ---
 
 Let $\{X_{n}\}$ be a sequence of i.i.d. random variables.
-$\{X_n\}$ is a Markov Chain if $P(X_{n+1} = j \mid X_{n} = i) = X_{1} = j \mid X_{0} = i)$ (Markov property).
+$\{X_n\}$ is a Markov Chain if for any $n = 0,1,\ldots,$
+
+$$P(X_{n+1} = j \mid X_{n} = i) = P(X_{1} = j \mid X_{0} = i)\quad \text{(Markov property)}.$$
+
 $\{X_{n}\}$ is a homogeneous Markov chain if it has the following additional property:
 
 $$P(X_{n+1} = i_{n+1} \mid X_{0} = i_{0},\ldots X_{n} = i_{n})
@@ -40,7 +43,7 @@ it is called **irreducible**.
 
 ## Period
 
-The period of a state $i$ ($d(i)$) is the gcd of the length
+The **period** of a state $i$ ($d(i)$) is the gcd of the length
 of all closed walks in the Markov chain starting from $i$.
 The period is a class property, so all states in
 the same communication class has the same period.

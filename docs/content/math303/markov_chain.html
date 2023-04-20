@@ -174,10 +174,12 @@
 </header>
 <p>Let <span class="math inline">\(\{X_{n}\}\)</span> be a sequence of
 i.i.d. random variables. <span class="math inline">\(\{X_n\}\)</span> is
-a Markov Chain if <span class="math inline">\(P(X_{n+1} = j \mid X_{n} =
-i) = X_{1} = j \mid X_{0} = i)\)</span> (Markov property). <span
-class="math inline">\(\{X_{n}\}\)</span> is a homogeneous Markov chain
-if it has the following additional property:</p>
+a Markov Chain if for any <span class="math inline">\(n =
+0,1,\ldots,\)</span></p>
+<p><span class="math display">\[P(X_{n+1} = j \mid X_{n} = i) = P(X_{1}
+= j \mid X_{0} = i)\quad \text{(Markov property)}.\]</span></p>
+<p><span class="math inline">\(\{X_{n}\}\)</span> is a homogeneous
+Markov chain if it has the following additional property:</p>
 <p><span class="math display">\[P(X_{n+1} = i_{n+1} \mid X_{0} =
 i_{0},\ldots X_{n} = i_{n})
 = P(X_{n+1} = i_{n+1} \mid X_{n} = i_{n}).\]</span></p>
@@ -219,7 +221,8 @@ class="math inline">\(i\in{C}, j\not\in{C}\)</span>.</p>
 <p>If a Markov chain has exactly 1 communication class, it is called
 <strong>irreducible</strong>.</p>
 <h2 id="period">Period</h2>
-<p>The period of a state <span class="math inline">\(i\)</span> (<span
+<p>The <strong>period</strong> of a state <span
+class="math inline">\(i\)</span> (<span
 class="math inline">\(d(i)\)</span>) is the gcd of the length of all
 closed walks in the Markov chain starting from <span
 class="math inline">\(i\)</span>. The period is a class property, so all
