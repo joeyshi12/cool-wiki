@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Birth and Death Process</title>
+  <title>Birth-Death Process</title>
   <style>
     html {
       color: #1a1a1a;
@@ -159,15 +159,102 @@
       vertical-align: middle;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Birth and Death Process</h1>
+<h1 class="title">Birth-Death Process</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-
+<p><strong>definition.</strong> Consider a CTMC with states <span
+class="math inline">\(i=0,1,2\ldots,n\)</span>. Let <span
+class="math inline">\(\lambda_{i}\)</span> be the rate that <span
+class="math inline">\(i\)</span> transitions to <span
+class="math inline">\(i+1\)</span>, <span
+class="math inline">\(\mu_{i}\)</span> be the rate that <span
+class="math inline">\(i\)</span> transitions to <span
+class="math inline">\(i-1\)</span>, and <span
+class="math inline">\(\lambda_{i} + \mu_{i}\)</span> be the rate that
+<span class="math inline">\(i\)</span> transitions to a new state. This
+CTMC is known as a <strong>birth-death process</strong>.</p>
+<figure>
+<img src="/assets/bd_process.svg" alt="Birth-Death Chain" />
+<figcaption aria-hidden="true">Birth-Death Chain</figcaption>
+</figure>
+<p>The limiting probabilities satisfies the <a
+href="/content/math303/ctmc.html#limiting-probabilities">balance
+equations</a>. Then,</p>
+<p><span class="math display">\[\begin{align}
+\lambda_{0} P_{0} &amp;= \mu_{1} P_{1} \\
+(\lambda_{1} + \mu_{1}) P_{1} &amp;= \lambda_{0} P_{0} + \mu_{2} P_{2}
+\Rightarrow \lambda_{1} P_{1} = \mu_{2} P_{2}
+\end{align}\]</span></p>
+<p>By induction, we find <span class="math inline">\(\lambda_{k-1}
+P_{k-1} = \mu_{k} P_{k}\)</span>, so</p>
+<p><span class="math display">\[P_{k} = \frac{\lambda_{k-1}}{\mu_{k}}
+P_{k-1} = \frac{\lambda_{k-1}\cdots \lambda_{0}}{\mu_{k}\cdots
+\mu_{1}}P_{0}.\]</span></p>
+<h2 id="example-1">Example 1</h2>
+<p>Let <span class="math inline">\(\lambda_{i} = \lambda\)</span>, <span
+class="math inline">\(\mu_{i} = \mu\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+\sum_{k=0}^{n} P_{k}
+&amp;= \sum_{k=0}^{n} \left( \frac{\lambda}{\mu} \right)^{k} P_{0}
+= P_{0} \left( \frac{1 - (\lambda/\mu)^{n+1}}{1 - \lambda/\mu} \right)
+= 1 \\
+P_{0} &amp;= \frac{1 - \lambda/\mu}{1 - (\lambda/\mu)^{n+1}} \\
+P_{k} &amp;= \left( \frac{\lambda}{\mu} \right)^{k}\frac{1 -
+\lambda/\mu}{1 - (\lambda/\mu)^{n+1}}
+\end{align}\]</span></p>
+<p>If the state space were infinite and <span
+class="math inline">\(\lambda/\mu &lt; 1\)</span>, then</p>
+<p><span class="math display">\[P_{k} = \left( \frac{\lambda}{\mu}
+\right)^{k}\left(1 - \frac{\lambda}{\mu}\right) =
+P(\mbox{Geom}(\lambda/\mu) = k + 1),\]</span></p>
+<p>so the distribution of limiting probabilities is <span
+class="math inline">\(\mbox{Geom}(\lambda/\mu) - 1\)</span>.</p>
+<h2 id="example-2">Example 2</h2>
+<p>Let <span class="math inline">\(\lambda_{i} = (n-i)\lambda\)</span>,
+<span class="math inline">\(\mu_{i} = i\mu\)</span> and suppose we have
+<span class="math inline">\(n\)</span> states.</p>
+<p><span class="math display">\[\begin{align}
+P_{k} &amp;= \frac{(n-k)(n-k+1)\cdots n}{k(k-1)\cdots 1}\left(
+\frac{\lambda}{\mu} \right)^{k}
+= \binom{n}{k}\left( \frac{\lambda}{\mu} \right)^{n} \\
+P_{0}\sum_{k=0}^{n} \binom{n}{k} \left( \frac{\lambda}{\mu} \right)^{k}
+&amp;= P_{0}(1 + \lambda/\mu)^{n} = 1 \\
+P_{0} &amp;= \frac{1}{(1 + \lambda/\mu)^{n}} \\
+P_{k} &amp;= \binom{n}{k}\left( \frac{\lambda}{\mu}
+\right)^{k}\frac{1}{(1 + \lambda/\mu)^{n}} \\
+&amp;= \binom{n}{k}\left( \frac{\lambda}{\lambda + \mu}
+\right)^{k}\left( \frac{\mu}{\lambda + \mu} \right)^{n-k} \\
+&amp;= P(\mbox{Bin}(n, \lambda/(\lambda + \mu)) = k),
+\end{align}\]</span></p>
+<p>so the distribution of limiting probabilities is <span
+class="math inline">\(\displaystyle \mbox{Bin}\left(n,
+\frac{\lambda}{\lambda + \mu}\right)\)</span>.</p>
+<h2 id="example-3">Example 3</h2>
+<ol start="3" type="1">
+<li>Let <span class="math inline">\(\lambda_{i} = \lambda\)</span> and
+<span class="math inline">\(\mu_{i} = i\mu\)</span> and the state space
+be infinite.</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+\sum_{k=1}^{n} \frac{1}{k!}\left( \frac{\lambda}{\mu} \right)^{k}P_{0}
+&amp;= P_{0}e^{\lambda/\mu} = 1 \\
+P_{0} &amp;= e^{-\lambda/\mu} \\
+P_{k} &amp;= \frac{1}{k!}\left( \frac{\lambda}{\mu}
+\right)^{k}e^{-\lambda/\mu} \\
+&amp;= P(\mbox{Poisson}(\lambda/\mu) = k)
+\end{align}\]</span></p>
+<p>so the distribution of limiting probabilities is <span
+class="math inline">\(\displaystyle
+\mbox{Poisson}(\lambda/\mu)\)</span>.</p>
 </body>
 </html>

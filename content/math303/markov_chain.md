@@ -23,7 +23,7 @@ Markov chains are often depicted as a directed multigraph,
 where the states are vertices and
 edges $ij$ are weighted by transition probabilities $p_{ij}$.
 
-![Simple Chain](/assets/figures/simple_chain.svg)
+![Simple Chain](/assets/simple_chain.svg)
 
 ## Communication Classes
 

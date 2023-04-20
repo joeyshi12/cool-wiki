@@ -13,6 +13,11 @@ $$P_{ij}(t) = P(X(t) = j \mid X(0) = i).$$
 
 Note that the Markov property still holds and homogeneity is often assumed.
 
+The CTMC can be depicted as a graph similar to discrete chains,
+but each edge $ij$ is now labelled with the rate of transitioning from $i$ to $j$.
+
+- See [Birth-Death Process](/content/math303/bd_process.html)
+
 ## Intensity Matrix
 
 The **intensity matrix** $Q = [q_{ij}]$ of the chain is
