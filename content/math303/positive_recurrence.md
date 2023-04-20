@@ -16,8 +16,8 @@ Now suppose $C$ is a recurrent communication class.
 We say a recurrent communication class $C$ is **positive recurrent** if
 the expected time of return of every $i\in{C}$ is finite. In other words,
 
-$$\mathbb{E}[X_{n} = i \text{ for some } n\mid X_{0} = i]
-= \sum_{n\in\mathbb{N}} p_{ii}^{(n)} < \infty.$$
+$$\mathbb{E}[T_{i}\mid X_{0} = i]
+= \sum_{n=2}^{\infty} np_{ii}^{(n)} < \infty.$$
 
 Otherwise, we say $C$ is **null recurrent**.
 Note that positive recurrence is also a class property.
@@ -25,9 +25,14 @@ Note that positive recurrence is also a class property.
 In the case of a finite state space,
 positive recurrence holds when the chain is closed.
 
-## Observations
+## Observations (WIP)
 
-Suppose a chain has 2 recurrent communication classes $C_{1}, C_{2}$.
+Suppose a chain with state space $S$ has 2 recurrent communication classes $C_{1}, C_{2}$.
+There exists a stationary distribution $\pi$, such that $\pi_{i} = 0$ for all $i\in S\setminus C_{1}$.
+Similarly, there exists a stationary distribution $\pi'$, such that $\pi_{i}' = 0$
+for all $i\in S\setminus C_{2}$.
+The convex combination $t\pi + (1-t)\pi'$ are also valid stationary distributions,
+so the chain has an infinite number of stationary distribution.
 
 ## The Big Theorem
 
