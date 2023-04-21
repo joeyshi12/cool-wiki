@@ -3,7 +3,7 @@ title: "Linear Programming"
 subtitle: "[Return home](/)"
 ---
 
-**problem**. $\displaystyle \min_{x} c^T x$ subject to $Ax = b$, $x\geq 0$
+**Linear Program**. $\displaystyle \min_{x} c^T x$ subject to $Ax = b$, $x\geq 0$
 
 ## LP Geometry
 

@@ -172,12 +172,12 @@
 <h1 class="title">Distribution Properties</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<table style="width:100%;">
+<table>
 <colgroup>
+<col style="width: 24%" />
+<col style="width: 34%" />
 <col style="width: 19%" />
-<col style="width: 37%" />
-<col style="width: 20%" />
-<col style="width: 22%" />
+<col style="width: 21%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -190,26 +190,26 @@ class="math inline">\((x)\)</span></th>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(Geom(p)\)</span></td>
+<td><span class="math inline">\(\mbox{Geom}(p)\)</span></td>
 <td><span class="math inline">\((1-p)^{k-1}p\)</span></td>
 <td><span class="math inline">\(\frac{1}{p}\)</span></td>
 <td><span class="math inline">\(\frac{1-p}{p^2}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(Bin(n, p)\)</span></td>
+<td><span class="math inline">\(\mbox{Bin}(n, p)\)</span></td>
 <td><span
 class="math inline">\(\binom{n}{k}p^{k}(1-p)^{n-k}\)</span></td>
 <td><span class="math inline">\(np\)</span></td>
 <td><span class="math inline">\(np(1-p)\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(Exp(\lambda)\)</span></td>
+<td><span class="math inline">\(\mbox{Exp}(\lambda)\)</span></td>
 <td><span class="math inline">\(\lambda e^{-\lambda x}\)</span></td>
 <td><span class="math inline">\(\frac{1}{\lambda}\)</span></td>
 <td><span class="math inline">\(\frac{1}{\lambda^2}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(Poisson(\lambda)\)</span></td>
+<td><span class="math inline">\(\mbox{Poisson}(\lambda)\)</span></td>
 <td><span
 class="math inline">\(\frac{\lambda^{k}e^{-\lambda}}{k!}\)</span></td>
 <td><span class="math inline">\(\lambda\)</span></td>
@@ -217,8 +217,8 @@ class="math inline">\(\frac{\lambda^{k}e^{-\lambda}}{k!}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>To analytically compute some of the expectations above, it is useful
-to recall some of the following sums/series:</p>
+<p>To analytically compute the expectations above, it is useful to
+recall the following sums/series:</p>
 <p><span class="math display">\[\begin{align}
 \frac{1-x^{n+1}}{1-x} &amp;= \sum_{k=0}^{n} x^{k} \\
 (x + y)^{n} &amp;= \sum_{k=0}^{n} \binom{n}{k}x^{k}y^{n-k} \\
@@ -227,17 +227,18 @@ e^x &amp;= \sum_{k=0}^{\infty} \frac{x^{k}}{k!}
 <h2 id="binomial-distribution">Binomial Distribution</h2>
 <p>The binomial distribution is equivalent to the distribution of a sum
 of independent Bernouli random variables. Thus,</p>
-<p><span class="math display">\[Bin(n, p) + Bin(m, p) = Bin(n + m,
-p).\]</span></p>
+<p><span class="math display">\[\mbox{Bin}(n, p) + \mbox{Bin}(m, p) =
+\mbox{Bin}(n + m, p).\]</span></p>
 <h2 id="exponential-distribution">Exponential Distribution</h2>
 <p>The exponential random variable <span class="math inline">\(X\sim
-Exp(\lambda)\)</span>, <span class="math inline">\(\lambda &gt;
+\mbox{Exp}(\lambda)\)</span>, <span class="math inline">\(\lambda &gt;
 0\)</span> has the following properties:</p>
 <ul>
 <li><span class="math inline">\(P(X &gt; t + s \mid X &gt; s) = P(X &gt;
 t)\)</span> (Memoryless)</li>
-<li><span class="math inline">\(\min\{Exp(\lambda_1), Exp(\lambda_2)\}
-\sim Exp(\lambda_1 + \lambda_2)\)</span></li>
+<li><span class="math inline">\(\min\{\mbox{Exp}(\lambda_1),
+\mbox{Exp}(\lambda_2)\} \sim \mbox{Exp}(\lambda_1 +
+\lambda_2)\)</span></li>
 </ul>
 </body>
 </html>

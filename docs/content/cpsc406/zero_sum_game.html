@@ -172,6 +172,8 @@
 <h1 class="title">2-Person, Zero-Sum Game</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
+<p>The following table represents the payoffs of Y to X for each
+possible pairs of actions (left or right) provided by X and Y:</p>
 <table>
 <thead>
 <tr class="header">
@@ -193,37 +195,33 @@
 </tr>
 </tbody>
 </table>
-<p>The elements of the game are</p>
-<ul>
-<li>Players</li>
-<li>Actions &amp; Strategies</li>
-<li>Payoffs</li>
-</ul>
 <p><strong>Strategies</strong>:</p>
 <ul>
 <li>Pure strategy: <span class="math inline">\(x = (1, 0)\)</span> and
 <span class="math inline">\(y = (0, 1)\)</span></li>
-<li>Mixed strategy: <span class="math inline">\(x = (1/2, 1/2\)</span>
+<li>Mixed strategy: <span class="math inline">\(x = (1/2, 1/2)\)</span>
 and <span class="math inline">\(y = (1/2, 1/2)\)</span>
 <ul>
-<li>Y expects <span class="math inline">\(P_Y = -10(1/4) + 20(1/4) +
-10(1/4) - 10(1/4) = 2.5\)</span></li>
-<li>X expects <span class="math inline">\(P_X = 2.5\)</span></li>
+<li>Y expects to pay <span class="math inline">\(P_Y = -10(1/4) +
+20(1/4) + 10(1/4) - 10(1/4) = 2.5\)</span></li>
+<li>X expects to gain <span class="math inline">\(P_X = -10(1/4) +
+20(1/4) + 10(1/4) - 10(1/4) = 2.5\)</span></li>
 </ul></li>
 </ul>
 <p><strong>Goal</strong>: Find strategies so that each player is
-happiest (not to deviate)</p>
+happiest (i.e., players will not deviate)</p>
 <p><strong>Saddle point</strong>:</p>
 <ul>
 <li>X has maximized her profit</li>
 <li>Y has minimized his loss</li>
 </ul>
 <h2 id="matrix-games">Matrix Games</h2>
-<p>Still 2 players X and Y. But now each player has n and m actions
-respectively.</p>
+<p>Given 2 players X and Y, each player has <span
+class="math inline">\(n\)</span> and <span
+class="math inline">\(m\)</span> actions respectively.</p>
 <ul>
 <li><span class="math inline">\(A\in\mathbb{R}^{m\times n}\)</span> are
-payoffs.</li>
+the payoffs of Y to X.</li>
 <li><span class="math inline">\(x\in\mathbb{R}^n\)</span> is the
 distribution of actions X can choose.</li>
 <li><span class="math inline">\(y\in\mathbb{R}^m\)</span> is the
@@ -238,50 +236,68 @@ a_{ij}x_{j}y_{i}\)</span>.</p>
 <h2 id="player-ys-analysis">Player Y’s Analysis</h2>
 <p>Suppose Y chooses <span class="math inline">\(y\)</span> as his
 strategy. Then, X will choose <span class="math inline">\(\max_{x}
-y^TAx\)</span> to maximize his expected payoff. Then, Y should choose
-<span class="math inline">\(y\)</span> to <span
-class="math inline">\(\min_{y} \max_{x} y^T A x\)</span>.</p>
-<h2 id="solving-for-ys-strategy">Solving for Y’s Strategy</h2>
-<p>Y: <span class="math inline">\(\min_{y}\min_{x} y^T x\)</span></p>
-<p>Suppose <span class="math inline">\(y\)</span> is given. X’s problem
-is <span class="math inline">\(\max_{x} (A^Ty)^Tx = \max_{x}
-y^TAx\)</span> subject to <span class="math inline">\(e^Tx = 1\)</span>,
-<span class="math inline">\(x\geq 0\)</span>. Let <span
-class="math inline">\(c := A^Ty\)</span>. Then, <span
-class="math inline">\(\max_{x} c^Tx\)</span> is simply the largest entry
-in <span class="math inline">\(c\)</span>, so we can write <span
-class="math inline">\(\max_{x} c^Tx = \max_{j} c_j\)</span>.</p>
-<p>Then, Y’s problem reduces to <span class="math inline">\(\min_{y}
-\max_{j} (y^TA)_j\)</span> subject to <span class="math inline">\(e^Ty =
+y^TAx\)</span> to maximize his expected payoff. Then, Y should choose to
+solve <span class="math inline">\(\min_{y} \max_{x} y^T A
+x\)</span>.</p>
+<p>Let <span class="math inline">\(c := A^Ty\)</span>. Then, the inner
+problem for player X simplifies to <span class="math inline">\(\max_{x}
+c^Tx = \max_{j} c_j\)</span>. Thus, Y’s problem reduces to</p>
+<p><span class="math inline">\(\displaystyle \min_{y}
+\|A^Ty\|_{\infty}\)</span> subject to <span class="math inline">\(e^Ty =
 1\)</span>, <span class="math inline">\(y\geq 0\)</span>.</p>
-<p>Reformulate as an LP:</p>
-<p><span class="math display">\[
-\begin{cases}
-    \min_{y, \nu} \nu \\
-    ve\geq A^T y,\quad e^T y = 1,\quad y\geq 0
-\end{cases}
-\]</span></p>
+<p>We can reformulate this as a <a
+href="/content/cpsc406/linear_programming.html">linear program</a></p>
+<p><span class="math display">\[\begin{cases}
+    \displaystyle \min_{y,\nu} \nu \\
+    A^T y\leq \nu e,\quad e^T y = 1,\quad y\geq 0
+\end{cases}\]</span></p>
 <h2 id="player-xs-analysis">Player X’s Analysis</h2>
-<p>Player X’s analysis is symmetric to Y’s analysis. Suppose X chooses x
-as her strategy. Similarly, we get Y’s inner problem as <span
-class="math inline">\(\min_{y} y^TAx\)</span> and then X should choose
-<span class="math inline">\(\max_{x} \min_{i} (Ax)_{i}\)</span> subject
-to <span class="math inline">\(e^T x = 1\)</span>, <span
-class="math inline">\(x\geq 0\)</span>.</p>
-<p><span class="math display">\[
-\begin{cases}
-    \max{y, \lambda} \lambda \\
-    \lambda e\leq Ax,\quad e^Tx = 1,\quad x\geq 0
-\end{cases}
-\]</span></p>
-<h2 id="summary">Summary</h2>
-<p>The worst case of X is if Y knows what X is going to choose. The
-worst case of Y is if X knows what Y is going to choose. MiniMax Theorem
-says X’s worst-case expected win is Y’s worst-case expected loss. In
-particular, it says that</p>
-<p>Weak duality: <span class="math inline">\(P_{X}^* \leq
-P_{Y}^*\)</span></p>
-<p>Strong duality: <span class="math inline">\(P_{X}^* =
-P_{Y}^*\)</span></p>
+<p>Player X’s analysis is symmetric to Y’s analysis, so player X’s
+problem is</p>
+<p><span class="math inline">\(\displaystyle \max_{x} \min_{i}
+(Ax)_{i}\)</span> subject to <span class="math inline">\(e^Tx =
+1\)</span>, <span class="math inline">\(x\geq 0\)</span>, which can be
+reformulated as</p>
+<p><span class="math display">\[\begin{cases}
+    \displaystyle \max_{x,\lambda} \lambda \\
+    Ax\geq \lambda e,\quad e^Tx = 1,\quad x\geq 0
+\end{cases}\]</span></p>
+<h2 id="dual-problems">Dual Problems</h2>
+<p>The worst case of X is if Y knows what X is going to choose.<br> The
+worst case of Y is if X knows what Y is going to choose.<br></p>
+<p><strong>Minimax theorem.</strong> X’s worst-case expected win is Y’s
+worst-case expected loss.</p>
+<p><strong>proof.</strong> It is sufficient to show that the <a
+href="/content/cpsc406/duality.html">dual</a> of problem Y is problem
+X.</p>
+<p>Introduce a slack variable <span class="math inline">\(s\geq
+0\)</span>, such that <span class="math inline">\(A^Ty + s = \nu
+e\)</span>, so <span class="math inline">\(A^Ty - \nu e + Is = (A^T, -e,
+I)\cdot (y, \nu, s) = 0\)</span>. Problem Y can be written in standard
+form with</p>
+<p><span class="math display">\[c = \begin{bmatrix}
+0 \\ 1 \\ 0
+\end{bmatrix},\quad
+\hat{A} = \begin{bmatrix}
+A^T &amp; -e &amp; I \\
+e^T &amp; 0 &amp; 0
+\end{bmatrix},\quad
+\hat{b} = \begin{bmatrix}
+0 \\ 1
+\end{bmatrix}.\]</span></p>
+<p>The dual of problem Y is then</p>
+<p><span class="math inline">\(\displaystyle \max_{u, \lambda}
+\hat{b}\cdot (u, \lambda) = \max_{u, \lambda} \lambda\)</span> subject
+to <span class="math inline">\(Au + \lambda e \leq 0\)</span>, <span
+class="math inline">\(-e^Tu \leq 1\)</span>, <span
+class="math inline">\(u \leq 0\)</span>. WLOG, substitute <span
+class="math inline">\(x = -u\)</span>. Then, the dual becomes</p>
+<p><span class="math inline">\(\displaystyle \max_{x, \lambda}
+\lambda\)</span> subject to <span class="math inline">\(Ax \geq \lambda
+e\)</span>, <span class="math inline">\(e^Tx = 1\)</span>, <span
+class="math inline">\(x\geq 0\)</span>, which is problem X.</p>
+<p>Hence, the optimal value of problem X is the same as the optimal
+value of problem Y by <a href="/content/cpsc406/duality.html">strong
+duality</a></p>
 </body>
 </html>

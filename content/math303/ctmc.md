@@ -49,6 +49,6 @@ The limiting probability of $j$ is given by $P_j = \lim_{t\to\infty} P_{ij}(t)$.
 
 - If the chain is positive recurrent and finite, then the limiting probabilities are unique and are the long-run proportion times spent in each state.
 - It is sufficient to simply have the embedded discrete-time chain be irreducible and finite.
-- Limiting probabilities must satisfiy the **balance equations**:
+- Limiting probabilities must satisfiy the **balance equations** (rate out = rates in):
 
 $$v_{j}P_{j} = \sum_{k\neq j} q_{kj}P_{k}\quad \text{and}\quad \sum_{j} P_j = 1$$
