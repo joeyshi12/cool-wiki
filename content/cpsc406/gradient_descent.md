@@ -23,7 +23,7 @@ subtitle: "[Return home](/)"
 
 - choose initial $t\leftarrow t_0$
 - for $k = 0,1,2,\dots$
-    - if $f(x_k + td) - f_k > \alpha t \nabla f_k^T d$, then return
+    - if $f(x_k + td) - f_k \leq \alpha t \nabla f_k^T d$, then return
     - $t\leftarrow \beta t$
 
 ![Linesearch](/assets/linesearch.svg)
