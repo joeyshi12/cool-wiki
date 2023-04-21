@@ -230,15 +230,17 @@ of independent Bernouli random variables. Thus,</p>
 <p><span class="math display">\[\mbox{Bin}(n, p) + \mbox{Bin}(m, p) =
 \mbox{Bin}(n + m, p).\]</span></p>
 <h2 id="exponential-distribution">Exponential Distribution</h2>
-<p>The exponential random variable <span class="math inline">\(X\sim
-\mbox{Exp}(\lambda)\)</span>, <span class="math inline">\(\lambda &gt;
-0\)</span> has the following properties:</p>
+<p>Let <span class="math inline">\(X\sim \mbox{Exp}(\lambda)\)</span>,
+<span class="math inline">\(Y\sim \mbox{Exp}(\mu)\)</span>, <span
+class="math inline">\(\lambda, \mu &gt; 0\)</span>. Then, the following
+properties hold:</p>
 <ul>
 <li><span class="math inline">\(P(X &gt; t + s \mid X &gt; s) = P(X &gt;
 t)\)</span> (Memoryless)</li>
-<li><span class="math inline">\(\min\{\mbox{Exp}(\lambda_1),
-\mbox{Exp}(\lambda_2)\} \sim \mbox{Exp}(\lambda_1 +
+<li><span class="math inline">\(\min\{X, Y\} \sim \mbox{Exp}(\lambda_1 +
 \lambda_2)\)</span></li>
+<li><span class="math inline">\(\displaystyle P(X &lt; Y) =
+\frac{\lambda_1}{\lambda_1 + \lambda_2}\)</span></li>
 </ul>
 </body>
 </html>

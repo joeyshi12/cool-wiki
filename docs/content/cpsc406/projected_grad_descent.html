@@ -197,5 +197,22 @@ class="math inline">\(f\)</span>. Then, <span class="math inline">\((x -
 z^*)^T(y - z^*)\leq 0\)</span> for any <span
 class="math inline">\(y\in{C}\)</span>, so <span
 class="math inline">\((x - z^*)\in N_{C}(x)\)</span> by definition.</p>
+<h2 id="normal-cone">Normal Cone</h2>
+<p><strong>definition.</strong> The normal cone of a convex set <span
+class="math inline">\(C\)</span> at a point <span
+class="math inline">\(x\in{C}\)</span> is <span
+class="math inline">\(N_C(x) = \{g\in\mathbb{R}^n \mid g^T(z - x)\leq 0,
+\forall z\in{C}\}\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(x\in\mbox{int}(C)\)</span>, then
+<span class="math inline">\(N_C(x) = \{0\}\)</span>.</li>
+<li>If <span class="math inline">\(x\)</span> belongs to the boundary of
+<span class="math inline">\(C\)</span>, then intuitively, the normal
+cone are the normal vectors of the hyperplane tangent to <span
+class="math inline">\(C\)</span> at <span
+class="math inline">\(x\)</span>.</li>
+</ul>
+<p>Example <span class="math inline">\(C = \{x \mid Ax = b\}\)</span>:
+<span class="math inline">\(N_C(x) = \mbox{range}(A^T)\)</span></p>
 </body>
 </html>

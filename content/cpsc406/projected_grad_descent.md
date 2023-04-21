@@ -19,3 +19,13 @@ $$f'(z^*; y - z^*) = \nabla f(z^*)^T(y - z^*) = (z^* - x)^T(y - z^*) \geq 0$$
 for any feasible $y$ as $z^*$ is the global minimizer of $f$.
 Then, $(x - z^*)^T(y - z^*)\leq 0$ for any $y\in{C}$,
 so $(x - z^*)\in N_{C}(x)$ by definition.
+
+## Normal Cone
+
+**definition.** The normal cone of a convex set $C$ at a point $x\in{C}$
+is $N_C(x) = \{g\in\mathbb{R}^n \mid g^T(z - x)\leq 0, \forall z\in{C}\}$.
+
+- If $x\in\mbox{int}(C)$, then $N_C(x) = \{0\}$.
+- If $x$ belongs to the boundary of $C$, then intuitively, the normal cone are the normal vectors of the hyperplane tangent to $C$ at $x$.
+
+Example $C = \{x \mid Ax = b\}$: $N_C(x) = \mbox{range}(A^T)$

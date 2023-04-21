@@ -28,7 +28,9 @@ $$\mbox{Bin}(n, p) + \mbox{Bin}(m, p) = \mbox{Bin}(n + m, p).$$
 
 ## Exponential Distribution
 
-The exponential random variable $X\sim \mbox{Exp}(\lambda)$, $\lambda > 0$ has the following properties:
+Let $X\sim \mbox{Exp}(\lambda)$, $Y\sim \mbox{Exp}(\mu)$, $\lambda, \mu > 0$.
+Then, the following properties hold:
 
 - $P(X > t + s \mid X > s) = P(X > t)$ (Memoryless)
-- $\min\{\mbox{Exp}(\lambda_1), \mbox{Exp}(\lambda_2)\} \sim \mbox{Exp}(\lambda_1 + \lambda_2)$
+- $\min\{X, Y\} \sim \mbox{Exp}(\lambda_1 + \lambda_2)$
+- $\displaystyle P(X < Y) = \frac{\lambda_1}{\lambda_1 + \lambda_2}$
