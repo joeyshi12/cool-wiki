@@ -43,7 +43,7 @@ so the distribution of limiting probabilities is $\mbox{Geom}(\lambda/\mu) - 1$.
 
 ## Example 2
 
-Let $\lambda_{i} = (n-i)\lambda$, $\mu_{i} = i\mu$ and suppose we have $n$ states.
+Let $\lambda_{i} = (n-i)\lambda$, $\mu_{i} = i\mu$ and suppose we have $n+1$ states.
 
 \begin{align}
 P_{k} &= \frac{(n-k)(n-k+1)\cdots n}{k(k-1)\cdots 1}\left( \frac{\lambda}{\mu} \right)^{k}
