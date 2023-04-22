@@ -46,8 +46,8 @@ so the distribution of limiting probabilities is $\mbox{Geom}(\lambda/\mu) - 1$.
 Let $\lambda_{i} = (n-i)\lambda$, $\mu_{i} = i\mu$ and suppose we have $n+1$ states.
 
 \begin{align}
-P_{k} &= \frac{(n-k)(n-k+1)\cdots n}{k(k-1)\cdots 1}\left( \frac{\lambda}{\mu} \right)^{k}
-= \binom{n}{k}\left( \frac{\lambda}{\mu} \right)^{n} \\
+P_{k} &= \frac{(n-k)(n-k+1)\cdots n}{k(k-1)\cdots 1}\left( \frac{\lambda}{\mu} \right)^{k}P_{0}
+= \binom{n}{k}\left( \frac{\lambda}{\mu} \right)^{n}P_{0} \\
 P_{0}\sum_{k=0}^{n} \binom{n}{k} \left( \frac{\lambda}{\mu} \right)^{k}
 &= P_{0}(1 + \lambda/\mu)^{n} = 1 \\
 P_{0} &= \frac{1}{(1 + \lambda/\mu)^{n}} \\

@@ -50,7 +50,7 @@ $$\lambda_{\min}(\nabla^2 f(x))\geq \mu,\quad \forall x\in\mathbb{R}^n.$$
 
 **proposition.** Let $f$ be $L$-Lipschitz continuously differentiable.
 Let $\{x_k\}$ be the iterates of gradient descent with constant stepsize $\alpha\in (0, 2/L)$.
-Then, $\min_{k=0,\dots, T} \|\nabla f(x_k)\|^2 \leq = \frac{2(f_0 - f^*)}{\alpha T} = O(1/T)$.
+Then, $\min_{k=0,\dots, T} \|\nabla f(x_k)\|^2 \leq \frac{2(f_0 - f^*)}{\alpha T} = O(1/T)$.
 
 Moreover, if $f$ is $\mu$-strongly convex, then the number of iterates
 is at most $\frac{L}{\mu}\log\left( \frac{f(x_0) - f^*}{\epsilon} \right)$,
