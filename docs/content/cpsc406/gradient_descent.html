@@ -217,20 +217,26 @@
 <li>compute <span class="math inline">\(d_k\)</span></li>
 <li>linesearch on <span class="math inline">\(f(x_k + \alpha
 d_k)\)</span></li>
-<li><span class="math inline">\(x_{k+1} = x_k + d_k\)</span></li>
+<li><span class="math inline">\(x_{k+1} = x_k + \alpha_k
+d_k\)</span></li>
 <li>if <span class="math inline">\(\|\nabla f(x_k)\| &lt;
 \epsilon\)</span>, then return</li>
 </ul></li>
 </ul>
 <h2 id="linesearch">Linesearch</h2>
+<p><strong>Exact line search</strong>: choose <span
+class="math inline">\(\alpha_k = \underset{\alpha\geq 0}{\mbox{argmin}}
+f(x + \alpha d)\)</span></p>
+<p><strong>Backtracking line search</strong>:</p>
 <ul>
-<li>choose initial <span class="math inline">\(t\leftarrow
-t_0\)</span></li>
+<li>choose initial <span class="math inline">\(\alpha\leftarrow
+\alpha_0\)</span> and parameter <span class="math inline">\(\mu\in (0,
+1)\)</span></li>
 <li>for <span class="math inline">\(k = 0,1,2,\dots\)</span>
 <ul>
-<li>if <span class="math inline">\(f(x_k + td) - f_k \leq \alpha t
-\nabla f_k^T d\)</span>, then return</li>
-<li><span class="math inline">\(t\leftarrow \beta t\)</span></li>
+<li>if <span class="math inline">\(f(x_k + \alpha d) - f_k \leq \mu
+\alpha \nabla f_k^T d\)</span>, then return</li>
+<li><span class="math inline">\(\alpha\leftarrow \alpha/2\)</span></li>
 </ul></li>
 </ul>
 <figure>

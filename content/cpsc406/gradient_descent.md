@@ -16,15 +16,19 @@ subtitle: "[Return home](/)"
 - for $k = 0,1,2,\dots$
     - compute $d_k$
     - linesearch on $f(x_k + \alpha d_k)$
-    - $x_{k+1} = x_k + d_k$
+    - $x_{k+1} = x_k + \alpha_k d_k$
     - if $\|\nabla f(x_k)\| < \epsilon$, then return
 
 ## Linesearch
 
-- choose initial $t\leftarrow t_0$
+**Exact line search**: choose $\alpha_k = \underset{\alpha\geq 0}{\mbox{argmin}} f(x + \alpha d)$
+
+**Backtracking line search**:
+
+- choose initial $\alpha\leftarrow \alpha_0$ and parameter $\mu\in (0, 1)$
 - for $k = 0,1,2,\dots$
-    - if $f(x_k + td) - f_k \leq \alpha t \nabla f_k^T d$, then return
-    - $t\leftarrow \beta t$
+    - if $f(x_k + \alpha d) - f_k \leq \mu \alpha \nabla f_k^T d$, then return
+    - $\alpha\leftarrow \alpha/2$
 
 ![Linesearch](/assets/linesearch.svg)
 
