@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Positive Recurrence</title>
+  <title>MATH 303 2015WT2</title>
   <style>
     html {
       color: #1a1a1a;
@@ -159,71 +159,15 @@
       vertical-align: middle;
     }
   </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Positive Recurrence</h1>
-<p class="subtitle"><a href="/">Return home</a></p>
+<h1 class="title">MATH 303 2015WT2</h1>
+<p class="subtitle"><a href="/content/exam">Back</a></p>
 </header>
-<p>A state <span class="math inline">\(i\)</span> of some communication
-class <span class="math inline">\(C\)</span> is
-<strong>recurrent</strong> if the probability of return is 1, which can
-be written as</p>
-<p><span class="math display">\[f_{i} = P(X_{n} = i \text{ for some } n
-&gt; 0\mid X_{0} = i) = 1.\]</span></p>
-<ul>
-<li>This is equivalent to <span
-class="math inline">\(\sum_{n=1}^{\infty} P(X_{n}=i\mid X_{0} = i) =
-\infty\)</span></li>
-<li>Note that recurrence is a class property</li>
-<li>We say <span class="math inline">\(C\)</span> is transient if <span
-class="math inline">\(f_i &lt; 1\)</span></li>
-</ul>
-<p>Now suppose <span class="math inline">\(C\)</span> is a recurrent
-communication class. We say a recurrent communication class <span
-class="math inline">\(C\)</span> is <strong>positive recurrent</strong>
-if the expected time of return of every <span
-class="math inline">\(i\in{C}\)</span> is finite. In other words,</p>
-<p><span class="math display">\[\mathbb{E}[T_{i}\mid X_{0} = i]
-= \sum_{n=2}^{\infty} np_{ii}^{(n)} &lt; \infty.\]</span></p>
-<p>Otherwise, we say <span class="math inline">\(C\)</span> is
-<strong>null recurrent</strong>. Note that positive recurrence is also a
-class property.</p>
-<p>In the case of a finite state space, positive recurrence holds when
-the chain is closed.</p>
-<h2 id="observations-wip">Observations (WIP)</h2>
-<p>Suppose a chain with state space <span
-class="math inline">\(S\)</span> has 2 recurrent communication classes
-<span class="math inline">\(C_{1}, C_{2}\)</span>. There exists a
-stationary distribution <span class="math inline">\(\pi\)</span>, such
-that <span class="math inline">\(\pi_{i} = 0\)</span> for all <span
-class="math inline">\(i\in S\setminus C_{1}\)</span>. Similarly, there
-exists a stationary distribution <span
-class="math inline">\(\pi&#39;\)</span>, such that <span
-class="math inline">\(\pi_{i}&#39; = 0\)</span> for all <span
-class="math inline">\(i\in S\setminus C_{2}\)</span>. The convex
-combination <span class="math inline">\(t\pi + (1-t)\pi&#39;\)</span>
-are also valid stationary distributions, so the chain has an infinite
-number of stationary distribution.</p>
-<h2 id="the-big-theorem">The Big Theorem</h2>
-<p>Suppose <span class="math inline">\(\{X_{n}\}\)</span> is ergodic
-(positive recurrent and <a
-href="/content/math303/markov_chain.html#period">aperiodic</a>). Then,
-the following properties hold:</p>
-<ol type="1">
-<li>There exists a unique stationary distribution.</li>
-<li>The mean time of return from <span class="math inline">\(i\)</span>
-is <span class="math inline">\(1/\pi_{i}\)</span>.</li>
-<li>The proportion of time spent in any state <span
-class="math inline">\(i\)</span> is <span
-class="math inline">\(\pi_{i}\)</span>.</li>
-</ol>
+
 </body>
 </html>
