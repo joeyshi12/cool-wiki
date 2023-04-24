@@ -60,6 +60,7 @@ Then, the following holds:
 
 Additional properties:
 
+- $G_n(0) = P(Z_n = 0)$
 - $G'(1) = E[X]$
 - $G''(1) = E[X^2] - E[X]$
     - $Var(X) = G''(1) + G'(1) - (G'(1))^2$

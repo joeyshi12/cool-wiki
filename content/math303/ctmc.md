@@ -14,7 +14,7 @@ $$P_{ij}(t) = P(X(t) = j \mid X(0) = i).$$
 Note that the Markov property still holds and homogeneity is often assumed.
 
 The CTMC can be depicted as a graph similar to discrete chains,
-but each edge $ij$ is now labelled with the rate of transitioning from $i$ to $j$.
+but each edge $ij$ is now labelled with the rate $q_{ij}$ of transitioning from $i$ to $j$.
 
 - See [Birth-Death Process](/content/math303/bd_process.html)
 
@@ -52,3 +52,6 @@ The limiting probability of $j$ is given by $P_j = \lim_{t\to\infty} P_{ij}(t)$.
 - Limiting probabilities must satisfiy the **balance equations** (rate out = rates in):
 
 $$v_{j}P_{j} = \sum_{k\neq j} q_{kj}P_{k}\quad \text{and}\quad \sum_{j} P_j = 1$$
+
+- CTMCs have an similar version of the discrete case [detailed balance equations](/content/math303/stationary_distribution.html#special-cases) with very similar consequences.
+$$q_{ij}P_i = q_{ji}P_j$$

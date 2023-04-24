@@ -187,8 +187,9 @@ i).\]</span></p>
 assumed.</p>
 <p>The CTMC can be depicted as a graph similar to discrete chains, but
 each edge <span class="math inline">\(ij\)</span> is now labelled with
-the rate of transitioning from <span class="math inline">\(i\)</span> to
-<span class="math inline">\(j\)</span>.</p>
+the rate <span class="math inline">\(q_{ij}\)</span> of transitioning
+from <span class="math inline">\(i\)</span> to <span
+class="math inline">\(j\)</span>.</p>
 <ul>
 <li>See <a href="/content/math303/bd_process.html">Birth-Death
 Process</a></li>
@@ -237,5 +238,11 @@ equations</strong> (rate out = rates in):</li>
 </ul>
 <p><span class="math display">\[v_{j}P_{j} = \sum_{k\neq j}
 q_{kj}P_{k}\quad \text{and}\quad \sum_{j} P_j = 1\]</span></p>
+<ul>
+<li>CTMCs have an similar version of the discrete case <a
+href="/content/math303/stationary_distribution.html#special-cases">detailed
+balance equations</a> with very similar consequences. <span
+class="math display">\[q_{ij}P_i = q_{ji}P_j\]</span></li>
+</ul>
 </body>
 </html>

@@ -172,9 +172,10 @@
 <h1 class="title">Markov Chain</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<p>Let <span class="math inline">\(\{X_{n}\}\)</span> be a sequence of
-i.i.d. random variables. <span class="math inline">\(\{X_n\}\)</span> is
-a Markov Chain if for any <span class="math inline">\(n =
+<p><strong>Definition.</strong> Let <span
+class="math inline">\(\{X_{n}\}\)</span> be a sequence of i.i.d. random
+variables. <span class="math inline">\(\{X_n\}\)</span> is a Markov
+Chain if for any <span class="math inline">\(n =
 0,1,\ldots,\)</span></p>
 <p><span class="math display">\[P(X_{n+1} = j \mid X_{n} = i) = P(X_{1}
 = j \mid X_{0} = i)\quad \text{(Markov property)}.\]</span></p>
@@ -183,14 +184,6 @@ Markov chain if it has the following additional property:</p>
 <p><span class="math display">\[P(X_{n+1} = i_{n+1} \mid X_{0} =
 i_{0},\ldots X_{n} = i_{n})
 = P(X_{n+1} = i_{n+1} \mid X_{n} = i_{n}).\]</span></p>
-<p>Let <span class="math inline">\(p_{ij} = P(X_{1} = j \mid X_{0} =
-i)\)</span>. If the state space of <span
-class="math inline">\(X_{n}\)</span> is finite, then the transition
-matrix of the chain <span class="math inline">\(P\)</span> is an <span
-class="math inline">\(m\times m\)</span> matrix, such that <span
-class="math inline">\(P_{ij} = p_{ij}\)</span>, where <span
-class="math inline">\(m\)</span> is the size of the state space of <span
-class="math inline">\(X_{n}\)</span>.</p>
 <p>Markov chains are often depicted as a directed multigraph, where the
 states are vertices and edges <span class="math inline">\(ij\)</span>
 are weighted by transition probabilities <span
@@ -199,12 +192,34 @@ class="math inline">\(p_{ij}\)</span>.</p>
 <img src="/assets/simple_chain.svg" alt="Simple Chain" />
 <figcaption aria-hidden="true">Simple Chain</figcaption>
 </figure>
+<h2 id="transition-matrix">Transition Matrix</h2>
+<p><strong>Definition.</strong> Let <span class="math inline">\(p_{ij} =
+P(X_{1} = j \mid X_{0} = i)\)</span>. If the state space of <span
+class="math inline">\(X_{n}\)</span> is finite, then we define the
+transition matrix of the chain <span class="math inline">\(P\)</span> as
+an <span class="math inline">\(m\times m\)</span> matrix, such that
+<span class="math inline">\(P_{ij} = p_{ij}\)</span>, where <span
+class="math inline">\(m\)</span> is the size of the state space of <span
+class="math inline">\(X_{n}\)</span>.</p>
+<p>Denote <span class="math inline">\(p_{ij}^{(n)} = P(X_n = j \mid X_0
+= i)\)</span>. We can observe that</p>
+<p><span class="math display">\[(P^2)_{ij} = \sum_{k} p_{ik}p_{kj} =
+p_{ij}^{(2)}\]</span></p>
+<p>by the law of total probability. By induction, we can see the
+transition probabilities after <span class="math inline">\(n\)</span>
+steps simplies to <span class="math inline">\(p_{ij}^{(n)} =
+(P^{n})_{ij}\)</span>.</p>
+<p>The following is another direct consequence of the law of total
+probabilty:</p>
+<p><span class="math display">\[p_{ij}^{(m+n)} = \sum_{k}
+p_{ik}^{(m)}p_{kj}^{(n)}\quad \text{(Chapman-Kologorov
+Equations)}\]</span></p>
 <h2 id="communication-classes">Communication Classes</h2>
-<p>We say <span class="math inline">\(j\)</span> is
-<strong>accessible</strong> from <span class="math inline">\(i\)</span>
-(<span class="math inline">\(i\to j\)</span>) if <span
-class="math inline">\(P(X_{n} = j \text{ for some } n\mid X_{0} = i)
-&gt; 0\)</span>. That is to say, there exists a <span
+<p><strong>Definition.</strong> We say <span
+class="math inline">\(j\)</span> is <strong>accessible</strong> from
+<span class="math inline">\(i\)</span> (<span class="math inline">\(i\to
+j\)</span>) if <span class="math inline">\(P(X_{n} = j \text{ for some }
+n\mid X_{0} = i) &gt; 0\)</span>. That is to say, there exists a <span
 class="math inline">\(i-j\)</span> path in the Markov chain. We say
 <span class="math inline">\(i\)</span> <strong>communicates</strong>
 with <span class="math inline">\(j\)</span> (<span
@@ -221,8 +236,8 @@ class="math inline">\(i\in{C}, j\not\in{C}\)</span>.</p>
 <p>If a Markov chain has exactly 1 communication class, it is called
 <strong>irreducible</strong>.</p>
 <h2 id="period">Period</h2>
-<p>The <strong>period</strong> of a state <span
-class="math inline">\(i\)</span> (<span
+<p><strong>Definition.</strong> The <strong>period</strong> of a state
+<span class="math inline">\(i\)</span> (<span
 class="math inline">\(d(i)\)</span>) is the gcd of the length of all
 closed walks in the Markov chain starting from <span
 class="math inline">\(i\)</span>. The period is a class property, so all
@@ -232,22 +247,43 @@ class="math inline">\(i\)</span> is <strong>aperiodic</strong>. If <span
 class="math inline">\(C\)</span> is the communication class of <span
 class="math inline">\(i\)</span>, so we may also say <span
 class="math inline">\(C\)</span> is aperiodic.</p>
-<h2 id="stationary-distribution">Stationary Distribution</h2>
-<p>An initial distribution <span class="math inline">\(\alpha\)</span>
-for a Markov chain is a list of probabilities <span
-class="math inline">\(P(X_0 = i) = \alpha_i\)</span>, such that <span
-class="math inline">\(\sum_{i} \alpha_i = 1\)</span>. Then, <span
-class="math inline">\(P(X_{n} = i) = (\alpha P^{n})_{i}\)</span>.</p>
-<p>We say a distribution <span class="math inline">\(\pi\)</span> is
-<strong>stationary</strong> if <span class="math inline">\(\pi P =
-\pi\)</span>.</p>
+<h2 id="recurrence">Recurrence</h2>
+<p><strong>Definition</strong>. Let <span class="math inline">\(f_i =
+P(X_n = i\text{ for some } n\geq 1\mid X_0 = i)\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(f_i = 1\)</span>, then state <span
+class="math inline">\(i\)</span> is <strong>recurrent</strong></li>
+<li>If <span class="math inline">\(f_i &lt; 1\)</span>, then state <span
+class="math inline">\(i\)</span> is <strong>transient</strong></li>
+</ul>
+<p>Since the probability of returning to a recurrent state <span
+class="math inline">\(i\)</span> is <span
+class="math inline">\(1\)</span>, we are guarenteed to return to <span
+class="math inline">\(i\)</span> an infinite number of times. That is,
+<span class="math inline">\(P(N_i = \infty \mid X_0 = i) = 1\)</span>,
+where <span class="math inline">\(N_i :=\)</span> number of returns to
+<span class="math inline">\(i\)</span> along some trajectory, which we
+can denote by <span class="math inline">\(\{X_n\}\)</span>. Then,</p>
+<p><span class="math display">\[\begin{align}
+N_i &amp;= \sum_{n=0}^{\infty} \mathbb{1}[X_n = i] \\
+E[N_i\mid X_0 = i] &amp;= \sum_{n=0}^{\infty} p_{ii}^{(n)} = \infty
+\end{align}\]</span></p>
+<p>if <span class="math inline">\(i\)</span> is recurrent and <span
+class="math inline">\(\sum_{n=0}^{\infty} p_{ii}^{(n)} &lt;
+\infty\)</span> if <span class="math inline">\(i\)</span> is
+transient.</p>
+<p>The following is commonly used to categorize chains with infinite
+states as recurrent or transient:</p>
+<p><strong>Proposition.</strong> A state <span
+class="math inline">\(i\)</span> is recurrent if and only if <span
+class="math inline">\(\sum_{n=0}^{\infty} p_{ii}^{(n)}\)</span>
+diverges.</p>
+<p><strong>Remark.</strong> Recurrence and transience are class
+properties.</p>
 <h2 id="more-notes">More Notes</h2>
 <ul>
-<li>Chapman-Kologorov Equations: <span
-class="math inline">\(p_{ij}^{(m+n)} = \sum_{k}
-p_{ik}^{(m)}p_{kj}^{(n)}\)</span></li>
-<li><a href="/content/math303/positive_recurrence.html">Positive
-recurrence</a></li>
+<li><a href="/content/math303/stationary_distribution.html">Stationary
+Distribution</a></li>
 </ul>
 </body>
 </html>
