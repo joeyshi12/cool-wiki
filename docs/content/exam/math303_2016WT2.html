@@ -160,11 +160,8 @@
     }
   </style>
   <style>
-      details > p {
-          color: blue;
-      }
       details {
-
+          color: blue;
       }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -180,63 +177,377 @@
 <h1 class="title">MATH 303 2016WT2</h1>
 <p class="subtitle"><a href="/content/exam">Back</a></p>
 </header>
-<ol type="1">
-<li>Consider the Markov chain with state space <span
-class="math inline">\(\{0, 1, 2\}\)</span> and transition matrix</li>
-</ol>
-<p><span class="math display">\[P = \cdots\]</span></p>
+<h2 id="question-1">Question 1</h2>
+<p>Consider the Markov chain with state space <span
+class="math inline">\(\{0, 1, 2\}\)</span> and transition matrix</p>
+<p><span class="math display">\[\mathbf{P}=\begin{array}{c|ccc}
+    &amp; 0 &amp; 1 &amp; 2 \\
+    \hline
+    0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 0 \\
+    1 &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} \\
+    2 &amp; \frac{1}{6} &amp; \frac{1}{2} &amp; \frac{1}{3}
+\end{array}\]</span></p>
 <ol type="a">
-<li>Suppose <span class="math inline">\(X_0 = 0\)</span>. Find the
-probability that <span class="math inline">\(X_2 = 2\)</span>.</li>
-</ol>
-<details>
-<summary>
-Solution
-</summary>
-<p>
-<span class="math display">\[\begin{align}
-p_{02}^{(2)} &amp;= p_{00}p_{02} + p_{01}p_{12} \\
-&amp;= 0 + \frac{1}{2}\cdot \frac{1}{2} \\
-&amp;= \frac{1}{4}
-\end{align}\]</span>
-</p>
-</details>
-<ol start="2" type="a">
-<li>Find the stationary distribution of the Markov chain.</li>
-</ol>
-<details>
-<summary>
-Solution
-</summary>
-<p>
-TODO
-</p>
-</details>
-<ol start="3" type="a">
-<li>What proportion of time does the Markov Chain spend in state 2, in
-the long run?</li>
-</ol>
-<details>
-<summary>
-Solution
-</summary>
-<p>
-TODO
-</p>
-</details>
-<ol start="4" type="a">
-<li>Suppose <span class="math inline">\(X_5 = 1\)</span>. What is the
+<li><p>Suppose <span class="math inline">\(X_0 = 0\)</span>. Find the
+probability that <span class="math inline">\(X_2 = 2\)</span>.</p></li>
+<li><p>Find the stationary distribution of the Markov chain.</p></li>
+<li><p>What proportion of time does the Markov Chain spend in state 2,
+in the long run?</p></li>
+<li><p>Suppose <span class="math inline">\(X_5 = 1\)</span>. What is the
 expected additional number of steps (after time 5) until the first time
 the Markov chain will return to state <span
-class="math inline">\(1\)</span>?</li>
+class="math inline">\(1\)</span>?</p></li>
 </ol>
 <details>
 <summary>
 Solution
 </summary>
-<p>
-TODO
-</p>
+<ol type="a">
+<li><p>The only walk from 0 to 2 of length 2 is <span
+class="math inline">\(0\to 1\to 2\)</span>, so <span
+class="math display">\[\begin{align}
+p_{02}^{(2)} = p_{01}p_{12} = \frac{1}{2}\cdot \frac{1}{2} = \frac{1}{4}
+\end{align}\]</span></p></li>
+<li><p>We can observe that the detailed balance equations does not hold
+for this transition matrix since <span class="math inline">\(p_{02} =
+0\)</span> and <span class="math inline">\(p_{20} &gt; 0\)</span>
+implies that the only solution to detailed balance is the zero-vector,
+which is not a distribution. Thus, we solve <span
+class="math inline">\(\pi p = \pi\)</span>, <span
+class="math inline">\(\sum_k \pi_k = 1\)</span>. <span
+class="math display">\[\begin{align}
+\pi_0 &amp;= \frac{1}{2}\pi_0 + \frac{1}{3}\pi_1 + \frac{1}{6}\pi_2 \\
+\pi_1 &amp;= \frac{1}{2}\pi_0 + \frac{1}{3}\pi_1 + \frac{1}{2}\pi_2 \\
+\pi_2 &amp;= \frac{1}{3}\pi_1 + \frac{1}{3}\pi_2 \\
+\pi_0 + \pi_1 + \pi_2 = 1
+\end{align}\]</span> the unique solution is <span
+class="math inline">\(\pi = (\frac{5}{7}, \frac{3}{7},
+\frac{3}{14})\)</span></p></li>
+<li><p>The chain is irreducible and finite. by the <a
+href="/content/math303/stationary_distribution.html#the-big-theorem">big
+theorem</a>, the proportion of time spent in state 2 is <span
+class="math inline">\(\pi_2 = \frac{3}{14}\)</span></p></li>
+<li><p>Once again, by the big theorem, the expected time of returning to
+1 is <span class="math inline">\(1/\pi_1 =
+\frac{7}{3}\)</span>.</p></li>
+</ol>
+</details>
+<h2 id="question-2">Question 2</h2>
+<p>Four black balls and four white balls are divided between urn 1 and
+urn 2, with four balls in each urn. At each time step, a ball is chosen
+from each of the two urns, then the ball from urn 1 is placed in urn 2,
+and the ball from urn 2 is placed in urn 1. Let <span
+class="math inline">\(X_n\)</span> denote the number of white balls in
+urn 1 after the nth step. This defines a Markov chain.</p>
+<ol type="a">
+<li><p>Determine the one-step transition matrix for this Markov
+chain.</p></li>
+<li><p>Using any method, determine the stationary distribution for the
+chain. (If you guess the distribution, be sure to verify that your guess
+is correct.)</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li><p><span class="math display">\[P = \begin{bmatrix}
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+\frac{1}{16} &amp; \frac{3}{8} &amp; \frac{9}{16} &amp; 0 &amp; 0 \\
+0 &amp; \frac{1}{4} &amp; \frac{1}{2} &amp; \frac{1}{4} &amp; 0 \\
+0 &amp; 0 &amp; \frac{9}{16} &amp; \frac{3}{8} &amp; \frac{1}{16} \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{bmatrix}\]</span></p></li>
+<li><p>We use the detailed balance equations. <span
+class="math display">\[\begin{align}
+\pi_0 &amp;= \frac{1}{16}\pi_1 &amp; \frac{9}{16}\pi_1 &amp;=
+\frac{1}{4}\pi_2 &amp; \frac{1}{4}\pi_2 &amp;= \frac{9}{16}\pi_3 &amp;
+\frac{1}{16}\pi_3 &amp;= \pi_4
+\end{align}\]</span> <span class="math display">\[\begin{align}
+\sum_{k=0}^{4} \pi_k = \left( 1 + 16 + 36 + 16  + 1 \right)\pi_0 =
+70\pi_0 = 1
+\end{align}\]</span> <span class="math display">\[\begin{align}
+\pi_0 &amp;= \pi_4 = \frac{1}{70} &amp; \pi_1 &amp;= \pi_3 =
+\frac{8}{35} &amp; \pi_2 &amp;= \frac{18}{35}
+\end{align}\]</span></p></li>
+</ol>
+</details>
+<h2 id="question-3">Question 3</h2>
+<p>Each day an individual is in an active or inactive state. An active
+day is followed by an inactive day with probability <span
+class="math inline">\(\alpha\)</span>, and an inactive day is followed
+by an active day with probability <span
+class="math inline">\(\beta\)</span>. This defines a Markov Chain with
+states “active” and “inactive.”</p>
+<ol type="a">
+<li><p>Draw the transition diagram for the Markov Chain.</p></li>
+<li><p>Determine the stationary distribution of the Markov
+Chain.</p></li>
+<li><p>Now suppose there are 10 such individuals, whose states change
+independently. What is the long run proportion of time that there are
+<span class="math inline">\(j\)</span> active individuals, for <span
+class="math inline">\(j = 0,1,\ldots,10\)</span>. (Explain or prove your
+answer.)</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li>Denote <span class="math inline">\(0 :=\)</span> inactive and <span
+class="math inline">\(1 :=\)</span> active.</li>
+</ol>
+<figure>
+<img src="/assets/math303_2016WT2_q3a.svg" alt="MATH 303 2016WT2 Q3a" />
+<figcaption aria-hidden="true">MATH 303 2016WT2 Q3a</figcaption>
+</figure>
+<ol start="2" type="a">
+<li><p>We use the detailed balance equations. <span
+class="math display">\[\begin{align}
+\beta\pi_0 &amp;= \alpha\pi_1 \\
+\beta\pi_0 &amp;= \alpha (1 - \pi_0) \\
+\pi_0 &amp;= \frac{\alpha}{\alpha + \beta},\quad \pi_1 =
+\frac{\beta}{\alpha + \beta}
+\end{align}\]</span></p></li>
+<li><p>In the long run, the fraction of time an individual is active is
+<span class="math inline">\(\pi_1\)</span>, so the proportion of time
+that <span class="math inline">\(j\)</span> individuals are active out
+of 10 is <span class="math display">\[\begin{align}
+P(\mbox{Bin}(10, \pi_1) = j) = \binom{10}{j}\left( \frac{\alpha}{\alpha
++ \beta} \right)^{j}\left( \frac{\beta}{\alpha + \beta} \right)^{10 - j}
+\end{align}\]</span></p></li>
+</ol>
+</details>
+<h2 id="question-4">Question 4</h2>
+<p>Suppose that <span class="math inline">\(X, Y\)</span> are
+independent exponential random variables with parameter <span
+class="math inline">\(\lambda\)</span>.</p>
+<ol type="a">
+<li><p>Find <span class="math inline">\(P(X &lt; 2Y)\)</span>.</p></li>
+<li><p>Find <span class="math inline">\(P(X &gt; a \mid X &lt;
+2Y)\)</span>.</p></li>
+<li><p>Which of the following is a correct formula for <span
+class="math inline">\(E(X^2\mid X &gt; 1)\)</span>? <span
+class="math inline">\(E[(X + 1)^2], (EX + 1)^2, EX^2 + 1\)</span>. Give
+a brief reason for your answer</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li>We compute <span class="math inline">\(P(X &lt; 2Y)\)</span>
+directly.</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+    P(X &lt; 2Y) &amp;= \int_{0}^{\infty}\int_{0}^{2y} \lambda^2
+e^{-\lambda x}e^{-\lambda y} dxdy \\
+    &amp;= \int_{0}^{\infty} \lambda (1 - e^{-2\lambda y})e^{-\lambda y}
+dy \\
+    &amp;= 1 - \frac{1}{3} \\
+    &amp;= \frac{2}{3}
+\end{align}\]</span></p>
+<ol start="2" type="a">
+<li>We compute <span class="math inline">\(P(X &gt; a \mid X &lt;
+2Y)\)</span> directly.</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+    P(X &gt; a \mid X &lt; 2Y) &amp;= \frac{P(a &lt; X &lt; 2Y)}{P(X
+&lt; 2Y)} \\
+    P(a &lt; X &lt; 2Y) &amp;= \int_{a}^{\infty}\int_{a}^{2y} \lambda^2
+e^{-\lambda x}e^{-\lambda y} dxdy \\
+    &amp;= \int_{a}^{\infty} \lambda (e^{-\lambda a} - e^{-2\lambda
+y})e^{-\lambda y} dy \\
+    &amp;= e^{-2\lambda a} - \frac{1}{3}e^{-2\lambda a} \\
+    &amp;= \frac{2}{3}e^{-2\lambda a} \\
+    P(X &gt; a\mid X &lt; 2Y) &amp;= e^{-2\lambda a} =
+P(\mbox{Exp}(2\lambda) &gt; a)
+\end{align}\]</span></p>
+<p>This implies that <span class="math inline">\((X\mid X &lt; 2Y)\sim
+\mbox{Exp}(2\lambda)\)</span>.</p>
+<ol start="3" type="a">
+<li><span class="math inline">\(E[X^2 \mid X &gt; 1] = E[(1 + (X - 1))^2
+\mid X &gt; 1]\)</span>. By memorylessness, <span
+class="math inline">\(((X - 1)^2\mid X &gt; 1) \sim
+\mbox{Exp}(\lambda)\)</span>. Thus, <span class="math inline">\(E[X^2
+\mid X &gt; 1] = E[(X + 1)^2]\)</span>.</li>
+</ol>
+</details>
+<h2 id="question-5">Question 5</h2>
+<p>Each customer who enters a certain business must be served first by
+server 1, then by server 2, and finally by server 3. The amount of time
+it takes to be served by server i is an exponential random variable with
+rate <span class="math inline">\(\mu_i\)</span> (<span
+class="math inline">\(i = 1,2,3\)</span>). Suppose you enter the system
+at a time when it contains a single customer who is being served by
+server 3.</p>
+<ol type="a">
+<li><p>What is the probability that server 3 will still be busy when you
+move over to server 2?</p></li>
+<li><p>What is the probability that server 3 will still be busy when you
+move over to server 3?</p></li>
+<li><p>Suppose that <span class="math inline">\(\mu_1 = \mu_3 =
+1\)</span> and <span class="math inline">\(\mu_2 = 2\)</span>. Find the
+expected time that you spend in the system.</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li><p><span class="math inline">\(P(T_1 &lt; T_3) = \frac{\mu_1}{\mu_1
++ \mu_3}\)</span></p></li>
+<li><p><span class="math inline">\(P(T_1 + T_2 &lt; T_3) =
+\frac{\mu_1}{\mu_1 + \mu_3}\cdot \frac{\mu_2}{\mu_2 +
+\mu_3}\)</span></p></li>
+<li><p>We can observe that the max of 2 values is the sum of the values
+minus the min of the values.</p></li>
+</ol>
+<span class="math display">\[\begin{align}
+E[\max(T_1 + T_2 + T_3, T_3&#39;)] &amp;= E[T_1 + T_2 + T_3] +
+E[T_3&#39;] - E[\min(T_1 + T_2 + T_3, T_3&#39;)] \\
+&amp;= \frac{1}{\mu_1 + \mu_2 + \mu_3} + \frac{1}{\mu_3} -
+\frac{1}{\mu_1 + \mu_2 + 2\mu_3} \\
+&amp;= \frac{1}{4} + 1 - \frac{1}{5} \\
+&amp;= \frac{21}{20}
+\end{align}\]</span>
+</details>
+<h2 id="question-6">Question 6</h2>
+<p>A system receives shocks according to a Poisson process with rate
+<span class="math inline">\(\lambda\)</span>. Each shock independently
+causes the system to fail with probability <span
+class="math inline">\(p\)</span>. Let <span
+class="math inline">\(T\)</span> denote the failure time of the system,
+and let <span class="math inline">\(N\)</span> be the number of shocks
+received up to and including time <span
+class="math inline">\(T\)</span>.</p>
+<ol type="a">
+<li><p>Suppose that <span class="math inline">\(N = n\)</span>. What is
+the conditional distribution (name and parameter(s)) of <span
+class="math inline">\(T\)</span>?</p></li>
+<li><p>Suppose that a failed system is always immediately replaced by a
+new system. What is the distribution (name and parameter(s)) of the
+number of replacements that occur during a fixed time interval <span
+class="math inline">\([0, t]\)</span>?</p></li>
+<li><p>Suppose that 5 shocks occur during <span
+class="math inline">\([0, t]\)</span>. What is the distribution (name
+and parameter(s)) of the number of replacements during <span
+class="math inline">\([0, t]\)</span>?</p></li>
+<li><p>Given that <span class="math inline">\(T = t\)</span>, what is
+the conditional distribution (name and parameter(s)) of <span
+class="math inline">\(N\)</span>?</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li><p>Given the number of shocks <span
+class="math inline">\(n\)</span>, the failure time is simply the time it
+takes to receive <span class="math inline">\(n\)</span> shocks, which is
+<span class="math inline">\(T_1 + T_2 + \cdots + T_n \sim
+\mbox{Gamma}(n, \lambda)\)</span>.</p></li>
+<li><p>The number of replacements is the number of fatal shocks received
+by time <span class="math inline">\(t\)</span> is <span
+class="math inline">\(N_1(t) \sim \mbox{Poisson}(\lambda p
+t)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mbox{Bin}(5, p)\)</span></p></li>
+<li><p>There is only 1 fatal shock at time <span
+class="math inline">\(t\)</span> and all shocks before <span
+class="math inline">\(t\)</span> are nonfatal, so <span
+class="math inline">\((N\mid T = t) \sim \mbox{Poisson}(\lambda (1-p)t)
++ 1\)</span>.</p></li>
+</ol>
+</details>
+<h2 id="question-7">Question 7</h2>
+<p>A service centre consists of two servers, each working at an
+exponential rate of two services per hour. Customers require service by
+one server (not both), and are served in order of arrival. Customers
+arrive at rate three per hour, and the system has total capacity of at
+most three customers. This defines a birth and death chain.</p>
+<ol type="a">
+<li><p>What are the birth and death rates?</p></li>
+<li><p>Determine the limiting probabilities.</p></li>
+<li><p>What fraction of potential customers are lost?</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li><p>The birth rate is <span class="math inline">\(\lambda_i =
+3\)</span> for <span class="math inline">\(i = 0,1,2\)</span> and the
+death rate is <span class="math inline">\(\mu_1 = 2\)</span> and <span
+class="math inline">\(\mu_i = 4\)</span> for <span
+class="math inline">\(i = 2, 3\)</span>.</p></li>
+<li><p>We can use the results from a <a
+href="/content/math303/bd_process.html">previous note</a> to
+find</p></li>
+</ol>
+<p><span class="math display">\[\begin{align}
+    P_1 &amp;= \frac{3}{2}P_0 \\
+    P_2 &amp;= \frac{3}{4}\frac{3}{2}P_0 \\
+    P_3 &amp;= \frac{3}{4}\frac{3}{4}\frac{3}{2}P_0
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+    P_0 &amp;= \frac{4}{61} &amp; P_1 &amp;= \frac{12}{61} &amp; P_2
+&amp;= \frac{18}{61} &amp; P_3 &amp;= \frac{27}{61}
+\end{align}\]</span></p>
+<ol start="3" type="a">
+<li>The fraction of potential customers lost is <span
+class="math inline">\(P_3\cdot \frac{3}{3 + 2} =
+\frac{81}{305}\)</span>.</li>
+</ol>
+</details>
+<h2 id="question-8">Question 8</h2>
+<p>A factory has four machines and a single repair technician. For each
+machine, the operating time until failure is an exponential random
+variable with rate <span class="math inline">\(\frac{1}{4}\)</span> per
+hour. The repair time of a failed machine is an exponential random
+variable with rate <span class="math inline">\(\frac{1}{2}\)</span> per
+hour. Up to four machines can be operating at any given time, but at
+most one machine can be in repair at any time. This defines a birth and
+death process, where the state is the number of machines that are
+operating.</p>
+<ol type="a">
+<li><p>Write down the birth and death rates.</p></li>
+<li><p>Write down the balance equations for the limiting
+probabilities.</p></li>
+<li><p>Solve the balance equations to obtain the limiting
+probabilities.</p></li>
+<li><p>What proportion of time is the repair technician idle?</p></li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<ol type="a">
+<li><p>The birth rate is <span class="math inline">\(\lambda_i =
+\frac{1}{2}\)</span> for <span class="math inline">\(i =
+0,1,2,3\)</span> and the death rate is <span class="math inline">\(\mu_i
+= \frac{1}{4}i\)</span> for <span class="math inline">\(i =
+1,2,3,4\)</span>.</p></li>
+<li><p>The balance equations are</p></li>
+</ol>
+<p><span class="math display">\[\begin{align}
+    \frac{1}{2}P_0 &amp;= \frac{1}{4}P_1 \\
+    \frac{3}{4}P_1 &amp;= \frac{1}{2}P_0 + \frac{1}{2}P_2 \\
+    P_2 &amp;= \frac{1}{2}P_1 + \frac{3}{4}P_3 \\
+    \frac{5}{4}P_3 &amp;= \frac{1}{2}P_2 + P_4 \\
+    \frac{3}{2}P_4 &amp;= \frac{1}{2}P_3
+\end{align}\]</span></p>
+<ol start="3" type="a">
+<li>We can solve the equations to obtain</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+P_0 &amp;= \frac{3}{19} &amp; P_1 &amp;= \frac{6}{19} &amp; P_2 &amp;=
+\frac{6}{19} \\
+P_3 &amp;= \frac{4}{19} &amp; P_4 &amp;= \frac{4}{19}. &amp;&amp;
+\end{align}\]</span></p>
+<ol start="4" type="a">
+<li><span class="math inline">\(\displaystyle \pi_0 =
+\frac{3}{19}\)</span>.</li>
+</ol>
 </details>
 </body>
 </html>
