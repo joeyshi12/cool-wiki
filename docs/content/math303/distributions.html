@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Distribution Properties</title>
+  <title>Distributions</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,15 +169,15 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Distribution Properties</h1>
+<h1 class="title">Distributions</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
 <table>
 <colgroup>
-<col style="width: 24%" />
-<col style="width: 34%" />
-<col style="width: 19%" />
-<col style="width: 21%" />
+<col style="width: 22%" />
+<col style="width: 41%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -215,6 +215,13 @@ class="math inline">\(\frac{\lambda^{k}e^{-\lambda}}{k!}\)</span></td>
 <td><span class="math inline">\(\lambda\)</span></td>
 <td><span class="math inline">\(\lambda\)</span></td>
 </tr>
+<tr class="odd">
+<td><span class="math inline">\(\mbox{Gamma}(n, \lambda)\)</span></td>
+<td><span class="math inline">\(\frac{x^{n-1}e^{-\lambda
+x}\lambda^{n}}{(n-1)!}\)</span></td>
+<td><span class="math inline">\(\frac{n}{\lambda}\)</span></td>
+<td><span class="math inline">\(\frac{n}{\lambda^2}\)</span></td>
+</tr>
 </tbody>
 </table>
 <p>To analytically compute the expectations above, it is useful to
@@ -224,6 +231,27 @@ recall the following sums/series:</p>
 (x + y)^{n} &amp;= \sum_{k=0}^{n} \binom{n}{k}x^{k}y^{n-k} \\
 e^x &amp;= \sum_{k=0}^{\infty} \frac{x^{k}}{k!}
 \end{align}\]</span></p>
+<h2 id="expectation">Expectation</h2>
+<p>Let <span class="math inline">\(X\)</span> be a random variable over
+state space <span class="math inline">\(\Omega\)</span>. If <span
+class="math inline">\(X\)</span> is discrete, then the expectation
+is</p>
+<p><span class="math display">\[EX = \sum_{x\in\Omega} xP(X =
+x).\]</span></p>
+<p>If <span class="math inline">\(X\)</span> is continuous and <span
+class="math inline">\(\Omega\subseteq\mathbb{R}\)</span>, then the
+expectation is</p>
+<p><span class="math display">\[EX = \int_{-\infty}^{\infty} x f_X(x)
+dx.\]</span></p>
+<p>Recall that the probability density function is defined as <span
+class="math inline">\(f_X(x) := \frac{d}{dx} P(X\leq x)\)</span>. If
+<span class="math inline">\(\Omega\)</span> is bounded below by <span
+class="math inline">\(a\in\mathbb{R}\)</span>, then we can alternatively
+compute expectation as the following:</p>
+<p><span class="math display">\[EX = \int_{0}^{\infty} (1 - P(X\leq x))
+dx.\]</span></p>
+<p><strong>Remark.</strong> This can shown by expressing the integrand
+as another integral and changing the order of integration.</p>
 <h2 id="binomial-distribution">Binomial Distribution</h2>
 <p>The binomial distribution is equivalent to the distribution of a sum
 of independent Bernouli random variables. Thus,</p>
@@ -237,7 +265,7 @@ properties hold:</p>
 <ul>
 <li><span class="math inline">\(P(X &gt; t + s \mid X &gt; s) = P(X &gt;
 t)\)</span> (Memoryless)</li>
-<li><span class="math inline">\(\min\{X, Y\} \sim \mbox{Exp}(\lambda_1 +
+<li><span class="math inline">\(\min(X, Y) \sim \mbox{Exp}(\lambda_1 +
 \lambda_2)\)</span></li>
 <li><span class="math inline">\(\displaystyle P(X &lt; Y) =
 \frac{\lambda_1}{\lambda_1 + \lambda_2}\)</span></li>

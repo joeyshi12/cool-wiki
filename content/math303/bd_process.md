@@ -3,7 +3,7 @@ title: "Birth-Death Process"
 subtitle: "[Return home](/)"
 ---
 
-**definition.** Consider a CTMC with states $i=0,1,2\ldots,n$.
+**Definition.** Consider a CTMC with states $i=0,1,2\ldots,n$.
 Let $\lambda_{i}$ be the rate that $i$ transitions to $i+1$,
 $\mu_{i}$ be the rate that $i$ transitions to $i-1$,
 and $\lambda_{i} + \mu_{i}$ be the rate that $i$ transitions to a new state.

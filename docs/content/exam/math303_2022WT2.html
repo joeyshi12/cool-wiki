@@ -160,7 +160,7 @@
     }
   </style>
   <style>
-      details > p {
+      details {
           color: blue;
       }
   </style>
@@ -175,7 +175,7 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">MATH 303 2022WT2</h1>
-<p class="subtitle"><a href="/content/exam">back</a></p>
+<p class="subtitle"><a href="/content/exam">Back</a></p>
 </header>
 <h2 id="question-1">Question 1</h2>
 <p>Consider a Markov chain with states <span
@@ -187,21 +187,68 @@ class="math inline">\(i &gt; 0\)</span>.</p>
 <ol type="a">
 <li><p>Is the chain irreducible? No justification needed.</p></li>
 <li><p>What is the period of the chain? Prove your answer.</p></li>
-<li><p>Is the chain recurrent? Prove your answer.</p></li>
+<li><p>Is state 100 recurrent? Prove your answer.</p></li>
 </ol>
-<details>
-<summary>
-Solution
-</summary>
-<ol type="a">
-<li><p>Yes</p></li>
-<li><p>1 since <span class="math inline">\(p_{00} &gt;
-0\)</span></p></li>
-<li><p>Yes. We can show <span class="math inline">\(\sum_{n=1}^{\infty}
-p_{00}^{(n)} = \infty\)</span>.</p></li>
-</ol>
-</details>
 <h2 id="question-2">Question 2</h2>
-<p>TODO</p>
+<p>A machine is either working or broken on any day. At each morning, if
+the machine was working the day before, there is a probability <span
+class="math inline">\(p\)</span> of the machine of breaking at the start
+of the day. Otherwise, a technician shows up and repairs the machine
+with probability <span class="math inline">\(1/2\)</span>.</p>
+<ol type="a">
+<li><p>What is the 1-step transition matrix for this chain?</p></li>
+<li><p>Find the fraction of time that the machine is working.</p></li>
+<li><p>If the machine is broken, it gets replaced with probability <span
+class="math inline">\(1/2\)</span>. On average, how many times does the
+machine gets replaced?</p></li>
+</ol>
+<h2 id="question-3">Question 3</h2>
+<p>Customers arrive to a restaurant with rate <span
+class="math inline">\(1\)</span>. Served by some time <span
+class="math inline">\(U\sim Unif[0, 1]\)</span>.</p>
+<ol type="a">
+<li><p>I forgot</p></li>
+<li><p>3 customers arrive in the interval <span
+class="math inline">\((0, 3)\)</span>. What is the probability that none
+of them arrive in <span class="math inline">\((0, 1)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\tilde{N}(7)\)</span> be the
+number of customers served in the first 7 hours. Name the distribution
+and parameters of <span
+class="math inline">\(\tilde{N}(7)\)</span>.</p></li>
+</ol>
+<h2 id="question-4">Question 4</h2>
+<p>Let <span class="math inline">\(X\sim \mbox{Exp}(\lambda)\)</span>,
+<span class="math inline">\(Y\sim \mbox{Exp}(\mu)\)</span>. What is</p>
+<ol type="a">
+<li><p>Forgot</p></li>
+<li><p>Forgot</p></li>
+<li><p>Find the expected value of the maximum of <span
+class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>.</p></li>
+</ol>
+<h2 id="question-5">Question 5</h2>
+<p>Forgot</p>
+<h2 id="question-6">Question 6</h2>
+<p>Forgot</p>
+<h2 id="question-7">Question 7</h2>
+<p>Forgot</p>
+<h2 id="question-8">Question 8</h2>
+<p>Forgot</p>
+<h2 id="question-9">Question 9</h2>
+<p>Consider a daycare with <span class="math inline">\(3\)</span> babies
+and <span class="math inline">\(1\)</span> caretaker. Each sleeping baby
+wakes up and starts crying at a rate of <span
+class="math inline">\(1\)</span>. When 1 baby wakes up and starts
+crying, there is a probability of <span
+class="math inline">\(1/2\)</span> for one other baby to also start
+crying. The caretaker calms the baby down and set them to sleep at a
+rate of <span class="math inline">\(4\)</span>.</p>
+<ol type="a">
+<li><p>What is the intensity matrix for this chain?</p></li>
+<li><p>Does this chain satisfy the detailed balance equations?</p></li>
+<li><p>Without any computation, justify why the limiting probabilities
+exist.</p></li>
+<li><p>Find the limiting probabilities.</p></li>
+</ol>
 </body>
 </html>
