@@ -5,9 +5,9 @@ subtitle: "[Return home](/)"
 
 ## Convex Sets
 
-**definition**. $C$ is **convex** if $\lambda x + (1 - \lambda) y\in{C}$ for any $x, y\in{C}$.
+**Definition**. $C$ is **convex** if $\lambda x + (1 - \lambda) y\in{C}$ for any $x, y\in{C}$.
 
-**proposition**. Let $C_1,\ldots, C_n$ be convex, $\mu_1,\ldots, \mu_n\in\mathbb{R}$,
+**Proposition**. Let $C_1,\ldots, C_n$ be convex, $\mu_1,\ldots, \mu_n\in\mathbb{R}$,
 and $A\in\mathbb{R}^{m\times n}$.
 Then, the following are also convex:
 
@@ -27,16 +27,16 @@ Then, the following are also convex:
 
 ## Convex Functions
 
-**definition.** $f$ is **convex** over a convex set $C$ if
+**Definition.** $f$ is **convex** over a convex set $C$ if
 $f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda) f(y)$
 for any $x, y\in{C}$.
 $f$ is **strictly convex** if strict inequality holds.
 
-**proposition**. Let $f, g$ be convex, $\alpha\geq 0$, $A\in\mathbb{R}^{m\times n}$ and $b\in\mathbb{R}^n$. Then, the following are also convex:
+**Proposition**. Let $f, g$ be convex, $\alpha\geq 0$, $A\in\mathbb{R}^{m\times n}$ and $b\in\mathbb{R}^n$. Then, the following are also convex:
 
 1. $\alpha f$
 2. $f + g$
 3. $f(Ax + b)$
 
-**theorem**. Local minimizers of a convex function $f$ are global minimizers.
+**Theorem**. Local minimizers of a convex function $f$ are global minimizers.
 Moreover, if $f$ is strictly convex, the global minimizer is unique.

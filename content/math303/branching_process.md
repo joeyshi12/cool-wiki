@@ -11,7 +11,7 @@ $$Z_n = \sum_{i=1}^{Z_{n-1}} X_{i},$$
 where each $X_i$ are independent with same distribution as $X$
 and $Z_{0} = 1$.
 
-**proposition**. Denote $\mu = EX$, $\sigma^2 = \mbox{Var}(X)$, and
+**Proposition**. Denote $\mu = EX$, $\sigma^2 = \mbox{Var}(X)$, and
 $\eta = P(\text{eventual extinction})$. Then,
 
 1. $\eta$ is the smallest non-negative root of $G(s) = s$
@@ -48,9 +48,9 @@ $$\mbox{Var}(Z_n) = E[\mbox{Var}(Z_n\mid Z_{n-1})] + \mbox{Var}(E[Z_{n}\mid Z_{n
 
 ## Generating Function
 
-**definition**. The generating function of $X$ is $G_X(s) = E[s^{X}]$.
+**Definition**. The generating function of $X$ is $G_X(s) = E[s^{X}]$.
 
-**proposition**. Let $X_{1},\ldots, X_{N}$ be i.i.d. and $N$ be an integer-valued random variable.
+**Proposition**. Let $X_{1},\ldots, X_{N}$ be i.i.d. and $N$ be an integer-valued random variable.
 Define $Y = X_1 + \cdots + X_{N}$ and let $Z_{n}$ be defined as above.
 Then, the following holds:
 

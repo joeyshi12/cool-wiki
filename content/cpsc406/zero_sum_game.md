@@ -75,7 +75,7 @@ The worst case of Y is if X knows what Y is going to choose.<br>
 
 **Minimax theorem.** X's worst-case expected win is Y's worst-case expected loss.
 
-**proof.** It is sufficient to show that the
+**Proof.** It is sufficient to show that the
 [dual](/content/cpsc406/duality.html) of problem Y is problem X.
 
 Introduce a slack variable $s\geq 0$, such that $A^Ty + s = \nu e$,

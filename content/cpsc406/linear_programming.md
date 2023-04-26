@@ -7,7 +7,7 @@ subtitle: "[Return home](/)"
 
 ## LP Geometry
 
-**definition**. Let $\mathcal{P} = \{x \mid Ax \leq b\}$.
+**Definition**. Let $\mathcal{P} = \{x \mid Ax \leq b\}$.
 
 - $x$ is an **extreme point** of $\mathcal{P}$ if it is not a convex combination of other points in $\mathcal{P}$.
 - $x$ is a **vertex** if there exists $c\neq 0$, such that $c^T x < c^T y$ for all $y\in\mathcal{P}$.
@@ -16,7 +16,7 @@ subtitle: "[Return home](/)"
     - $\overline{A}x = \overline{b}$
     - $\mbox{rank}(\overline{A}) = n$
 
-**theorem**. The following are equivalent statements:
+**Theorem**. The following are equivalent statements:
 
 - $x$ is an extreme point
 - $x$ is a vertex

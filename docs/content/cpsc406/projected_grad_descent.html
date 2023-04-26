@@ -172,11 +172,11 @@
 <h1 class="title">Projected Gradient Descent</h1>
 <p class="subtitle"><a href="/">Return home</a></p>
 </header>
-<p><strong>problem</strong>. <span class="math inline">\(\displaystyle
+<p><strong>Problem</strong>. <span class="math inline">\(\displaystyle
 \min_{x\in{C}} f(x)\)</span>, where <span
 class="math inline">\(f\)</span> is continuously differentiable and
 <span class="math inline">\(C\)</span> is convex.</p>
-<p><strong>definition</strong>. <span
+<p><strong>Definition</strong>. <span
 class="math inline">\(\mbox{proj}_{C}(x) =
 \underset{z\in{C}}{\mbox{argmin}} \frac{1}{2}\|z - x\|^2\)</span></p>
 <ul>
@@ -186,7 +186,7 @@ class="math inline">\(x\in{C}\)</span></li>
 the objective is strictly convex</li>
 <li><span class="math inline">\((x - z)\in N_{C}(x)\)</span></li>
 </ul>
-<p><strong>proof for (3)</strong>. for the third property, let <span
+<p><strong>Proof for (3)</strong>. for the third property, let <span
 class="math inline">\(f(z) = \frac{1}{2}\|z - x\|^2\)</span>. If <span
 class="math inline">\(z^* = \mbox{proj}_{C}(x)\)</span>,</p>
 <p><span class="math display">\[f&#39;(z^*; y - z^*) = \nabla f(z^*)^T(y
@@ -198,7 +198,7 @@ z^*)^T(y - z^*)\leq 0\)</span> for any <span
 class="math inline">\(y\in{C}\)</span>, so <span
 class="math inline">\((x - z^*)\in N_{C}(x)\)</span> by definition.</p>
 <h2 id="normal-cone">Normal Cone</h2>
-<p><strong>definition.</strong> The normal cone of a convex set <span
+<p><strong>Definition.</strong> The normal cone of a convex set <span
 class="math inline">\(C\)</span> at a point <span
 class="math inline">\(x\in{C}\)</span> is <span
 class="math inline">\(N_C(x) = \{g\in\mathbb{R}^n \mid g^T(z - x)\leq 0,
