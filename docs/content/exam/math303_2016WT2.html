@@ -177,7 +177,7 @@
 <h1 class="title">MATH 303 2016WT2</h1>
 <p class="subtitle"><a href="/content/exam">Back</a></p>
 </header>
-<h2 id="question-1">Question 1</h2>
+<h1 id="question-1">Question 1</h1>
 <p>Consider the Markov chain with state space <span
 class="math inline">\(\{0, 1, 2\}\)</span> and transition matrix</p>
 <p><span class="math display">\[\mathbf{P}=\begin{array}{c|ccc}
@@ -232,7 +232,7 @@ class="math inline">\(\pi_2 = \frac{3}{14}\)</span></p></li>
 \frac{7}{3}\)</span>.</p></li>
 </ol>
 </details>
-<h2 id="question-2">Question 2</h2>
+<h1 id="question-2">Question 2</h1>
 <p>Four black balls and four white balls are divided between urn 1 and
 urn 2, with four balls in each urn. At each time step, a ball is chosen
 from each of the two urns, then the ball from urn 1 is placed in urn 2,
@@ -272,7 +272,7 @@ class="math display">\[\begin{align}
 \end{align}\]</span></p></li>
 </ol>
 </details>
-<h2 id="question-3">Question 3</h2>
+<h1 id="question-3">Question 3</h1>
 <p>Each day an individual is in an active or inactive state. An active
 day is followed by an inactive day with probability <span
 class="math inline">\(\alpha\)</span>, and an inactive day is followed
@@ -318,7 +318,7 @@ P(\mbox{Bin}(10, \pi_1) = j) = \binom{10}{j}\left( \frac{\alpha}{\alpha
 \end{align}\]</span></p></li>
 </ol>
 </details>
-<h2 id="question-4">Question 4</h2>
+<h1 id="question-4">Question 4</h1>
 <p>Suppose that <span class="math inline">\(X, Y\)</span> are
 independent exponential random variables with parameter <span
 class="math inline">\(\lambda\)</span>.</p>
@@ -373,7 +373,7 @@ class="math inline">\(((X - 1)^2\mid X &gt; 1) \sim
 \mid X &gt; 1] = E[(X + 1)^2]\)</span>.</li>
 </ol>
 </details>
-<h2 id="question-5">Question 5</h2>
+<h1 id="question-5">Question 5</h1>
 <p>Each customer who enters a certain business must be served first by
 server 1, then by server 2, and finally by server 3. The amount of time
 it takes to be served by server i is an exponential random variable with
@@ -400,19 +400,19 @@ Solution
 <li><p><span class="math inline">\(P(T_1 + T_2 &lt; T_3) =
 \frac{\mu_1}{\mu_1 + \mu_3}\cdot \frac{\mu_2}{\mu_2 +
 \mu_3}\)</span></p></li>
-<li><p>We can observe that the max of 2 values is the sum of the values
-minus the min of the values.</p></li>
+<li><p>We condition on the event that server 3 is still busy when you
+move over to server 3:</p></li>
 </ol>
 <span class="math display">\[\begin{align}
-E[\max(T_1 + T_2 + T_3, T_3&#39;)] &amp;= E[T_1 + T_2 + T_3] +
-E[T_3&#39;] - E[\min(T_1 + T_2 + T_3, T_3&#39;)] \\
-&amp;= \frac{1}{\mu_1 + \mu_2 + \mu_3} + \frac{1}{\mu_3} -
-\frac{1}{\mu_1 + \mu_2 + 2\mu_3} \\
-&amp;= \frac{1}{4} + 1 - \frac{1}{5} \\
-&amp;= \frac{21}{20}
+P(T_1 + T_2 &lt; T_3&#39;) &amp;= \frac{1}{2}\cdot \frac{2}{3} =
+\frac{1}{3} \\
+E[T] &amp;= E[T\mid T_1 + T_2 &gt; T_3&#39;]P(T_1 + T_2 \geq T_3&#39;) +
+E[T\mid T_1 + T_2 &lt; T_3&#39;]P(T_1 + T_2 &lt; T_3&#39;) \\
+&amp;= (1 + 1/2 + 1)\frac{2}{3} + (1 + 1/2 + 2)\frac{1}{3} \\
+&amp;= 17/6
 \end{align}\]</span>
 </details>
-<h2 id="question-6">Question 6</h2>
+<h1 id="question-6">Question 6</h1>
 <p>A system receives shocks according to a Poisson process with rate
 <span class="math inline">\(\lambda\)</span>. Each shock independently
 causes the system to fail with probability <span
@@ -459,7 +459,7 @@ class="math inline">\((N\mid T = t) \sim \mbox{Poisson}(\lambda (1-p)t)
 + 1\)</span>.</p></li>
 </ol>
 </details>
-<h2 id="question-7">Question 7</h2>
+<h1 id="question-7">Question 7</h1>
 <p>A service centre consists of two servers, each working at an
 exponential rate of two services per hour. Customers require service by
 one server (not both), and are served in order of arrival. Customers
@@ -499,7 +499,7 @@ class="math inline">\(P_3\cdot \frac{3}{3 + 2} =
 \frac{81}{305}\)</span>.</li>
 </ol>
 </details>
-<h2 id="question-8">Question 8</h2>
+<h1 id="question-8">Question 8</h1>
 <p>A factory has four machines and a single repair technician. For each
 machine, the operating time until failure is an exponential random
 variable with rate <span class="math inline">\(\frac{1}{4}\)</span> per
