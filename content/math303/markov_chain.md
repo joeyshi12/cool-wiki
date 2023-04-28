@@ -60,6 +60,10 @@ it is called **irreducible**.
 
 **Definition.** The **period** of a state $i$ ($d(i)$) is the gcd of the length
 of all closed walks in the Markov chain starting from $i$.
+The period of $i$ can be written as
+
+$$d_i = \gcd\{n\mid p_{ii}^{(n)} > 0\}.$$
+
 The period is a class property, so all states in
 the same communication class has the same period.
 
