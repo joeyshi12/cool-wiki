@@ -60,6 +60,10 @@
     img {
       max-width: 100%;
     }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
     h1, h2, h3, h4, h5, h6 {
       margin-top: 1.4em;
     }
@@ -152,20 +156,20 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
   </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
@@ -179,30 +183,30 @@
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Method</th>
 <th>Problem</th>
 <th><span class="math inline">\(d_k\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Gauss-Newton</td>
 <td><span class="math inline">\(\min_{x}
 \frac{1}{2}\|r(x)\|^2\)</span></td>
 <td><span class="math inline">\(-(J_k^TJ_k)^{-1}(J_k^Tr_k)\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Pure Newton</td>
 <td>General unconstrained</td>
 <td><span class="math inline">\(-H_k^{-1}g_k\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Scaled Descent</td>
 <td>General unconstrained</td>
 <td><span class="math inline">\(-SS^Tg_k\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Reduced Gradient Method</td>
 <td>Linearly constrained</td>
 <td><span class="math inline">\(-(Z^TH_kZ)^{-1}Z^Tg_k\)</span></td>
