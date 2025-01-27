@@ -166,7 +166,7 @@
       vertical-align: middle;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
@@ -183,30 +183,30 @@
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Method</th>
 <th>Problem</th>
 <th><span class="math inline">\(d_k\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Gauss-Newton</td>
 <td><span class="math inline">\(\min_{x}
 \frac{1}{2}\|r(x)\|^2\)</span></td>
 <td><span class="math inline">\(-(J_k^TJ_k)^{-1}(J_k^Tr_k)\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Pure Newton</td>
 <td>General unconstrained</td>
 <td><span class="math inline">\(-H_k^{-1}g_k\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Scaled Descent</td>
 <td>General unconstrained</td>
 <td><span class="math inline">\(-SS^Tg_k\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Reduced Gradient Method</td>
 <td>Linearly constrained</td>
 <td><span class="math inline">\(-(Z^TH_kZ)^{-1}Z^Tg_k\)</span></td>

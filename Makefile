@@ -6,7 +6,7 @@ all: $(BUILD_HTML_FILES)
 
 docs/%.html: %.md
 	@mkdir -p $$(dirname $@)
-	pandoc -s --mathjax -o $@ $<
+	pandoc --highlight-style=tango -s --mathjax -o $@ $<
 
 new:
 	$(if $(path),\

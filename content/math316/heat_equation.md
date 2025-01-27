@@ -59,7 +59,4 @@ u(x, 0) &= f(x) = \sum_{n=1}^{\infty} b_n\sin\left(\frac{\pi n}{L}x\right)
 The above may look like a contradiction, but rest assured,
 it is possible to find coefficients $b_n$, such that
 the right hand series can *pointwise* converge to any arbitrary function $f(x)$.
-This series is a special case of what's known as the **Fourier Series**
-and is also the birthplace of what's known as **Harmonic Analysis**.
 
-## Trick for Finding Coefficients
